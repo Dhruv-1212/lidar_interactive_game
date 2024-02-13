@@ -1018,7 +1018,7 @@ while control: #main running loop of the game screen
         if input_1:
             char_s_image_status = 1
             input_1=0
-        
+            global_click_check = 1
 
     # my_button_2 = Button("NEXT",470,90,True,50,90)
     
@@ -1033,7 +1033,8 @@ while control: #main running loop of the game screen
         input_2 = my_button_2.check_click_manually(finger,queue_not_empty)
         if input_2:
             char_s_scene_status = 1
-    
+            global_click_check = 1
+
     if char_s_scene_status == 1:
         if time_0_0_status == 1:
             time_0_0 = pygame.time.get_ticks()
@@ -1047,13 +1048,15 @@ while control: #main running loop of the game screen
             if active_s1_1!=0:
                 hint_s1-=1
                 active_s1_1=0
-        
+                global_click_check = 1
+
         input_4 = my_button_4.check_click_manually(finger,queue_not_empty)
         if input_4:
             snake_image_status = 1
             if active_s1_2!=0:
                 hint_s1-=1
                 active_s1_2=0
+                global_click_check = 1
 
         input_5 = my_button_5.check_click_manually(finger,queue_not_empty)
         if input_5:
@@ -1061,13 +1064,16 @@ while control: #main running loop of the game screen
             if active_s1_3!=0:
                 hint_s1-=1
                 active_s1_3=0
+                global_click_check = 1
 
         input_6 = my_button_6.check_click_manually(finger,queue_not_empty)
         if input_6:
             stone_image_status = 1
             if active_s1_4!=0:
                 hint_s1-=1
-                active_s1_4=0 
+                active_s1_4=0
+                global_click_check = 1
+
     #blitting the images of elements on the screen after their positions are clicked
                 
         button_rect = pygame.rect.Rect((550,50 ),(230,40))
@@ -1179,9 +1185,7 @@ while control: #main running loop of the game screen
         if input_7:
             night_scene_image_status = 1
             summary_status_s1=3
-
-
-
+            global_click_check = 1
 
     #-------------------------Day Scene ----->>>>  Night Scene----------------------------
         
@@ -1197,24 +1201,32 @@ while control: #main running loop of the game screen
             if active_s2_1!=0:
                 hint_s2-=1
                 active_s2_1=0
+                global_click_check = 1
+
         input_9 = my_button_5.check_click_manually(finger,queue_not_empty)
         if input_9:
             swing_image_status = 2
             if active_s2_2!=0:
                 hint_s2-=1
                 active_s2_2=0
+                global_click_check = 1
+
         input_10 = my_button_7.check_click_manually(finger,queue_not_empty)
         if input_10:
             spider_image_status = 2
             if active_s2_3!=0:
                 hint_s2-=1
                 active_s2_3=0
+                global_click_check = 1
+
         input_11 = my_button_8.check_click_manually(finger,queue_not_empty)
         if input_11:
             stars_image_status = 2
             if active_s2_4!=0:
                 hint_s2-=1
                 active_s2_4=0
+                global_click_check = 1
+
     
         button_rect = pygame.rect.Rect((550,50 ),(230,40))
         button_rect_2 = pygame.rect.Rect((550,85 ),(230,40))
@@ -1313,6 +1325,7 @@ while control: #main running loop of the game screen
             forest_scene_status = 1
             summary_status_s2=3
             night_delay_status=3
+            global_click_check = 1
 
     #---------------------Night Scene ----->>>  Forest Scene------------------------------------
     
@@ -1328,24 +1341,32 @@ while control: #main running loop of the game screen
             if active_s3_1!=0:
                 hint_s3-=1
                 active_s3_1=0
+                global_click_check = 1
+
         input_14 = my_button_12.check_click_manually(finger,queue_not_empty)
         if input_14:
             spider_image_status = 3
             if active_s3_2!=0:
                 hint_s3-=1
                 active_s3_2=0
+                global_click_check = 1
+
         input_15 = my_button_13.check_click_manually(finger,queue_not_empty)
         if input_15:
             stone_image_status = 3
             if active_s3_3!=0:
                 hint_s3-=1
                 active_s3_3=0
+                global_click_check = 1
+
         input_16 = my_button_14.check_click_manually(finger,queue_not_empty)
         if input_16:
             snake_image_status = 3
             if active_s3_4!=0:
                 hint_s3-=1
                 active_s3_4=0
+                global_click_check = 1
+
 
         button_rect = pygame.rect.Rect((250,50 ),(230,40))
         button_rect_2 = pygame.rect.Rect((250,85 ),(230,40))
@@ -1444,6 +1465,7 @@ while control: #main running loop of the game screen
         if input_17:
             branch_scene_status = 1
             summary_status_s3=3
+            global_click_check = 1
 
     if branch_scene_status == 1:
         if time_1_4_1_status == 1:
@@ -1467,17 +1489,22 @@ while control: #main running loop of the game screen
         if input_18:
             post_branch_scene_status = 1
             branch_scene_status=0
+            global_click_check = 1
+
         input_19 = my_button_16.check_click_manually(finger,queue_not_empty)
         if input_19:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
         input_20 = my_button_17.check_click_manually(finger,queue_not_empty)
         if input_20:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
         input_21 = my_button_19.check_click_manually(finger,queue_not_empty)
         if input_21:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
             
     if post_branch_scene_status == 1:

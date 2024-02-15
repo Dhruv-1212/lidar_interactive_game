@@ -127,6 +127,7 @@ class DataPublisher(threading.Thread):
                         ans=self.transform_coordinates([key,value])
                         if(ans[0]>0 and ans[0]<540) and (ans[1]>0 and ans[1]< 360):
                             self.list_all_coordinates_transformed.append(ans)
+                            # print("getting data")
                         # key_avg += key
                         # value_avg += value
 
@@ -139,13 +140,15 @@ class DataPublisher(threading.Thread):
             #     value_avg = value_avg / l
             # final_data = self.transform_coordinates([key_avg, value_avg])
 
-
-            sorted_data = sorted(list_all_coordinates_transformed, key=lambda x: x[1])
+            sorted_data = sorted(self.list_all_coordinates_transformed, key=lambda x: x[1])
             final_coord=[]
-            final_coord.apped(sorted_data[0])
-            for i in range(len(sorted_data)):
-                if(final_coord[0][0]-10<sorted_data[i][0] and final_coord[0][0]+10>sorted_data[i][0] and final_coord[0][1]+10<sorted_data[i][1]):
-                    final_coord.append(sorted_data[i])
+            if(len(sorted_data)!=0):
+                # print("data_recieved")
+                final_coord.append(sorted_data[0])
+                for i in range(len(sorted_data)):
+                    # print("sorted")
+                    if(final_coord[0][0]-5<sorted_data[i][0] and final_coord[0][0]+5>sorted_data[i][0] and final_coord[0][1]+5<sorted_data[i][1]):
+                        final_coord.append(sorted_data[i])
 
             # if final_data is not None and l != 0:
             #     self.coordinate_queue.put(final_data[0])

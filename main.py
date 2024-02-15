@@ -350,7 +350,7 @@ class Button:
 
     def check_click_manually(self, finger, queue_not_empty):
         if (queue_not_empty):
-            print("checking the click")
+            # print("checking the click")
 
             button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
             pos = finger
@@ -393,7 +393,7 @@ class Button4:
         
     def check_click_manually(self,finger, queue_not_empty):
         if(queue_not_empty):
-            print("checking the click")
+            # print("checking the click")
 
             button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
             pos=finger
@@ -442,7 +442,7 @@ class Button2:
     def check_click_manually(self,finger, queue_not_empty):
 
         if(queue_not_empty):
-            print("checking the click")
+            # print("checking the click")
 
             button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
             pos=finger
@@ -491,7 +491,7 @@ class Button3:
     def check_click_manually(self,finger, queue_not_empty):
         if(queue_not_empty):
             button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
-            print("checking the click")
+            # print("checking the click")
 
             pos=finger
             if(button_rect.collidepoint(pos)):
@@ -531,7 +531,7 @@ class New_Button:
     def check_click_manually(self,finger, queue_not_empty):
         if(queue_not_empty):
             button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
-            print("checking the click")
+            # print("checking the click")
 
             pos=finger
             if(button_rect.collidepoint(pos)):
@@ -922,19 +922,23 @@ my_button_58.draw()
 my_button_59 = Button("TOAD", 910, 457, True, 65, 74)
 my_button_59.draw()
 
+#for screen marker
+circle_surface = pygame.Surface((16, 16), pygame.SRCALPHA)
+pygame.draw.circle(circle_surface, (0, 0, 0, 128), (8, 8), 8)
+
 control = True #status of the main while loop
 uart_port = '/dev/ttyACM0'
 uart_speed = 19200
 
 
 
-
+list_all_coordinates_transformed=[]
 class DataPublisher(threading.Thread):
-    def __init__(self, name, coordinate_queue):
+    def __init__(self, name, coordinate_queue,  list_all_coordinates_transformed):
         super().__init__()
-        self.name = name
+        self.name = name;
         self.coordinate_queue = coordinate_queue
-
+        self.list_all_coordinates_transformed=list_all_coordinates_transformed
         laser_serial = serial.Serial(port=uart_port, baudrate=uart_speed, timeout=0.5)
         port = serial_port.SerialPort(laser_serial)
         self.laser = hokuyo.Hokuyo(port)
@@ -959,32 +963,69 @@ class DataPublisher(threading.Thread):
             key_avg = 0
             value_avg = 0
             l = 0
+            # list_key=[]
+            # list_value=[]
             if (data is not None):
                 for key, value in data.items():
                     if -65 < key < 70 and 70 < value < 500:
-                        l += 1
+                        # list_key.append(key)
+                        # list_value.append(value)
+                        # l += 1
                         list_cord.append((key, value))
-                        key_avg += key
-                        value_avg += value
+                        ans=self.transform_coordinates([key,value])
+                        if(ans[0]>0 and ans[0]<540) and (ans[1]>0 and ans[1]< 360):
+                            self.list_all_coordinates_transformed.append(ans)
+                            # print("getting data")
+                        # key_avg += key
+                        # value_avg += value
 
-            print("length: ", l)
-            if l != 0:
-                key_avg = key_avg / l
-                value_avg = value_avg / l
+            # # print("length: ", l)
+            # for i in range(len(list_key)):
+            #     ans=self.transform_coordinates([list_key[i],list_value[i]])
+            #     list_all_coordinate.append(ans)
+            # if l != 0:
+            #     key_avg = key_avg / l
+            #     value_avg = value_avg / l
+            # final_data = self.transform_coordinates([key_avg, value_avg])
 
-            # print("################################")
-            print(key_avg, value_avg)
+            sorted_data = sorted(self.list_all_coordinates_transformed, key=lambda x: x[1])
+            final_coord=[]
+            if(len(sorted_data)!=0):
+                # print("data_recieved")
+                final_coord.append(sorted_data[0])
+                for i in range(len(sorted_data)):
+                    # print("sorted")
+                    if(final_coord[0][0]-5<sorted_data[i][0] and final_coord[0][0]+5>sorted_data[i][0] and final_coord[0][1]+5<sorted_data[i][1]):
+                        final_coord.append(sorted_data[i])
 
-            final_data = self.transform_coordinates([key_avg, value_avg])
+            # if final_data is not None and l != 0:
+            #     self.coordinate_queue.put(final_data[0])
+            #     self.coordinate_queue.put(final_data[1])
+            avg_x=0
+            avg_y=0
+            # if(len(self.list_all_coordinates_transformed)!=0):
+            #     for i in list_all_coordinates_transformed:
+            #         avg_x+=i[0]
+            #         avg_y+=i[1]
+            #     avg_x=avg_x/len(self.list_all_coordinates_transformed)
+            #     avg_y=avg_y/len(self.list_all_coordinates_transformed)
 
-            if final_data is not None and l != 0:
-                self.coordinate_queue.put(final_data[0])
-                self.coordinate_queue.put(final_data[1])
+            if(len(final_coord)!=0):
+                for i in final_coord:
+                    avg_x+=i[0]
+                    avg_y+=i[1]
+                avg_x=avg_x/len(final_coord)
+                avg_y=avg_y/len(final_coord)
 
+
+            if(avg_x!=0):
+                self.coordinate_queue.put(avg_x)
+                self.coordinate_queue.put(avg_y)
+            self.list_all_coordinates_transformed=[]
             time.sleep(.1)
 
 coordinate_queue = queue.Queue()
-thread1 = DataPublisher(name="Thread 1", coordinate_queue=coordinate_queue)
+thread1 = DataPublisher(name="Thread 1", coordinate_queue=coordinate_queue,  list_all_coordinates_transformed=list_all_coordinates_transformed)
 thread1.start()
 queue_not_empty=0
 finger=(0,0)
@@ -997,12 +1038,14 @@ def error_sound_new():
 
     error_sound_.play()
 
+total_click_count=0
 
 
 while control: #main running loop of the game screen
     if(coordinate_queue.empty()):
         queue_not_empty=0
         finger=(0,0)
+        print("queue_empty")
     else:
         queue_not_empty=1
         x=coordinate_queue.get()
@@ -1010,7 +1053,7 @@ while control: #main running loop of the game screen
         coord_x=int((1200/505)*x)
         coord_y=int((700/360)*y)
         finger=(coord_x, coord_y)
-
+        print(finger)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             control = False
@@ -1192,8 +1235,9 @@ while control: #main running loop of the game screen
             sound_play_status = 0
         my_button_9 = Button("NEXT",480,500,True,50,90)
         my_button_9.draw()
-        input_7 = my_button_9.check_click()
+        input_7 = my_button_9.check_click_manually(finger,queue_not_empty)
         if input_7:
+            print("click on next")
             night_scene_image_status = 1
             summary_status_s1=3
             global_click_check = 1
@@ -1331,7 +1375,7 @@ while control: #main running loop of the game screen
             night_scene_sound_play_status = 0
         my_button_10 = Button("NEXT",480,500,True,50,90)
         my_button_10.draw()
-        input_12 = my_button_10.check_click()
+        input_12 = my_button_10.check_click_manually(finger, queue_not_empty)
         if input_12:
             forest_scene_status = 1
             summary_status_s2=3
@@ -1472,7 +1516,7 @@ while control: #main running loop of the game screen
             forest_scene_sound_play_status = 0
         my_button_15 = Button("NEXT",488,500,True,50,90)
         my_button_15.draw()
-        input_17 = my_button_15.check_click()
+        input_17 = my_button_15.check_click_manually(finger, queue_not_empty)
         if input_17:
             branch_scene_status = 1
             summary_status_s3=3
@@ -1682,7 +1726,7 @@ while control: #main running loop of the game screen
             a3_scene_sound_play_status = 0
         my_button_39 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_39.draw()
-        input_41 = my_button_39.check_click()
+        input_41 = my_button_39.check_click_manually(finger, queue_not_empty)
         if input_41:
             a1scene_status = 1
             summary_status_a3 = 3
@@ -1799,7 +1843,7 @@ while control: #main running loop of the game screen
             a1_scene_sound_play_status = 0
         my_button_28 = Button("NEXT",480,550,True,50,90)
         my_button_28.draw()
-        input_30 = my_button_28.check_click()
+        input_30 = my_button_28.check_click_manually(finger, queue_not_empty)
         if input_30:
             a2_scene_status = 1
             summary_status_a1=3
@@ -1935,7 +1979,7 @@ while control: #main running loop of the game screen
             a2_scene_sound_play_status = 0
         my_button_34 = Button("NEXT",480,550,True,50,90)
         my_button_34.draw()
-        input_36 = my_button_34.check_click()
+        input_36 = my_button_34.check_click_manually(finger, queue_not_empty)
         if input_36:
             a4_scene_status = 1
             summary_status_a2=3
@@ -2067,7 +2111,7 @@ while control: #main running loop of the game screen
             a4_scene_sound_play_status = 0
         my_button_44 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_44.draw()
-        input_46 = my_button_44.check_click()
+        input_46 = my_button_44.check_click_manually(finger, queue_not_empty)
         if input_46:
             t_char_status = 1
             summary_status_a4 = 3
@@ -2223,7 +2267,7 @@ while control: #main running loop of the game screen
         # my_button_60 = Button("FINISH",480,570,True,50,110)
         my_button_60 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_60.draw()
-        input_62 = my_button_60.check_click()
+        input_62 = my_button_60.check_click_manually(finger, queue_not_empty)
         if input_62:
             t2_scene_status = 1
             t3_delay_status = 3
@@ -2360,7 +2404,7 @@ while control: #main running loop of the game screen
             t2_scene_sound_play_status = 0
         my_button_55 = Button("NEXT",480,550,True,50,90)
         my_button_55.draw()
-        input_57 = my_button_55.check_click()
+        input_57 = my_button_55.check_click_manually(finger, queue_not_empty)
         if input_57:
             t1_scene_status = 1
             time.sleep(1)
@@ -2497,7 +2541,7 @@ while control: #main running loop of the game screen
         # my_button_50 = Button("NEXT",480,550,True,50,90)
         my_button_50 = Button("FINISH",480,570,True,50,110)
         my_button_50.draw()
-        input_52 = my_button_50.check_click()
+        input_52 = my_button_50.check_click_manually(finger, queue_not_empty)
         if input_52:
             # t2_scene_status = 1
             control=False
@@ -2571,10 +2615,16 @@ while control: #main running loop of the game screen
         forest_scene_status=0
         error_sound_new()
 
-        if(queue_not_empty and (not(global_click_check))):
-            print("error")
-            error_sound_new()
-            global_click_check=0
+    if(queue_not_empty and (not(global_click_check))):
+        print("error")
+        error_sound_new()
+        global_click_check=0
+
+    # if(queue_not_empty):
+        #screen marker
+    # print("projecting")
+    screen.blit(circle_surface,finger)
+
     pygame.display.update()
 
 

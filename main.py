@@ -841,9 +841,57 @@ summary_status_t1 = 0
 summary_status_t2 = 0
 summary_status_t3 = 0
 
-summary_status = 0
-my_button_3 = Button("SUN", 240, 15, True, 150, 130)
-# my_button_3.draw()
+summary_status=0
+
+#time taken by student to select the element
+t_a1_1=0
+t_a1_2=0
+t_a1_3=0
+t_a2_1=0
+t_a2_2=0
+t_a2_3=0
+t_a3_1=0
+t_a3_2=0
+t_a3_3=0
+t_a4_1=0
+t_a4_2=0
+t_a4_3=0
+t_a4_4=0
+
+t_s1_1=0
+t_s1_2=0
+t_s1_3=0
+t_s1_4=0
+t_s2_1=0
+t_s2_2=0
+t_s2_3=0
+t_s2_4=0
+t_s3_1=0
+t_s3_2=0
+t_s3_3=0
+t_s3_4=0
+
+
+
+t_t1_1=0
+t_t1_2=0
+t_t1_3=0
+t_t1_4=0
+t_t2_1=0
+t_t2_2=0
+t_t2_3=0
+t_t2_4=0
+t_t3_1=0
+t_t3_2=0
+t_t3_3=0
+t_t3_4=0
+t_t4_1=0
+t_t4_2=0
+t_t4_3=0
+t_t4_4=0
+
+my_button_3 = Button("SUN",240,15,True,150,130)
+my_button_3.draw()
 
 my_button_4 = Button("SNAKE", 800, 550, True, 200, 150)
 my_button_4.draw()
@@ -1059,7 +1107,8 @@ def error_sound_new():
 
 
 total_click_count = 0
-
+wrong_clicks=0
+correct_clicks=0
 while control:  # main running loop of the game screen
     if (coordinate_queue.empty()):
         queue_not_empty = 0
@@ -1067,6 +1116,7 @@ while control:  # main running loop of the game screen
         print("queue_empty")
     else:
         queue_not_empty = 1
+        correct_clicks+=1
         x = coordinate_queue.get()
         y = coordinate_queue.get()
         coord_x = int((1200 / 505) * x)
@@ -1114,6 +1164,7 @@ while control:  # main running loop of the game screen
         input_3 = my_button_3.check_click_manually(finger, queue_not_empty)
         if input_3:
             sun_image_status = 1
+            t_s1_1=pygame.time.get_ticks()-time_0_0
             if active_s1_1 != 0:
                 hint_s1 -= 1
                 active_s1_1 = 0
@@ -1122,6 +1173,7 @@ while control:  # main running loop of the game screen
         input_4 = my_button_4.check_click_manually(finger, queue_not_empty)
         if input_4:
             snake_image_status = 1
+            t_s1_2=pygame.time.get_ticks()-time_0_0
             if active_s1_2 != 0:
                 hint_s1 -= 1
                 active_s1_2 = 0
@@ -1130,6 +1182,7 @@ while control:  # main running loop of the game screen
         input_5 = my_button_5.check_click_manually(finger, queue_not_empty)
         if input_5:
             swing_image_status = 1
+            t_s1_3=pygame.time.get_ticks()-time_0_0
             if active_s1_3 != 0:
                 hint_s1 -= 1
                 active_s1_3 = 0
@@ -1138,6 +1191,7 @@ while control:  # main running loop of the game screen
         input_6 = my_button_6.check_click_manually(finger, queue_not_empty)
         if input_6:
             stone_image_status = 1
+            t_s1_4=pygame.time.get_ticks()-time_0_0
             if active_s1_4 != 0:
                 hint_s1 -= 1
                 active_s1_4 = 0
@@ -1271,6 +1325,7 @@ while control:  # main running loop of the game screen
         input_8 = my_button_6.check_click_manually(finger, queue_not_empty)
         if input_8:
             stone_image_status = 2
+            t_s2_1=pygame.time.get_ticks()-time_1_2_1
             if active_s2_1 != 0:
                 hint_s2 -= 1
                 active_s2_1 = 0
@@ -1279,6 +1334,7 @@ while control:  # main running loop of the game screen
         input_9 = my_button_5.check_click_manually(finger, queue_not_empty)
         if input_9:
             swing_image_status = 2
+            t_s2_2=pygame.time.get_ticks()-time_1_2_1
             if active_s2_2 != 0:
                 hint_s2 -= 1
                 active_s2_2 = 0
@@ -1287,6 +1343,7 @@ while control:  # main running loop of the game screen
         input_10 = my_button_7.check_click_manually(finger, queue_not_empty)
         if input_10:
             spider_image_status = 2
+            t_s2_3=pygame.time.get_ticks()-time_1_2_1
             if active_s2_3 != 0:
                 hint_s2 -= 1
                 active_s2_3 = 0
@@ -1295,6 +1352,7 @@ while control:  # main running loop of the game screen
         input_11 = my_button_8.check_click_manually(finger, queue_not_empty)
         if input_11:
             stars_image_status = 2
+            t_s2_4=pygame.time.get_ticks()-time_1_2_1
             if active_s2_4 != 0:
                 hint_s2 -= 1
                 active_s2_4 = 0
@@ -1419,6 +1477,7 @@ while control:  # main running loop of the game screen
         input_13 = my_button_11.check_click_manually(finger, queue_not_empty)
         if input_13:
             sun_image_status = 3
+            t_s3_1=pygame.time.get_ticks()-time_1_3_1
             if active_s3_1 != 0:
                 hint_s3 -= 1
                 active_s3_1 = 0
@@ -1427,6 +1486,7 @@ while control:  # main running loop of the game screen
         input_14 = my_button_12.check_click_manually(finger, queue_not_empty)
         if input_14:
             spider_image_status = 3
+            t_s3_2=pygame.time.get_ticks()-time_1_3_1
             if active_s3_2 != 0:
                 hint_s3 -= 1
                 active_s3_2 = 0
@@ -1435,6 +1495,7 @@ while control:  # main running loop of the game screen
         input_15 = my_button_13.check_click_manually(finger, queue_not_empty)
         if input_15:
             stone_image_status = 3
+            t_s3_3=pygame.time.get_ticks()-time_1_3_1
             if active_s3_3 != 0:
                 hint_s3 -= 1
                 active_s3_3 = 0
@@ -1443,6 +1504,7 @@ while control:  # main running loop of the game screen
         input_16 = my_button_14.check_click_manually(finger, queue_not_empty)
         if input_16:
             snake_image_status = 3
+            t_s3_4=pygame.time.get_ticks()-time_1_3_1
             if active_s3_4 != 0:
                 hint_s3 -= 1
                 active_s3_4 = 0
@@ -1653,7 +1715,7 @@ while control:  # main running loop of the game screen
         input_37 = my_button_35.check_click_manually(finger, queue_not_empty)
         if input_37:
             a3_apples_status = 1
-
+            t_a1_1=pygame.time.get_ticks()-time_2_3_1
             if active_a1_1 != 0:
                 hint_a1 -= 1
                 active_a1_1 = 0
@@ -1662,6 +1724,7 @@ while control:  # main running loop of the game screen
         input_38 = my_button_36.check_click_manually(finger, queue_not_empty)
         if input_38:
             a3_axe_status = 1
+            t_a1_2=pygame.time.get_ticks()-time_2_3_1
             if active_a1_2 != 0:
                 hint_a1 -= 1
                 active_a1_2 = 0
@@ -1670,6 +1733,7 @@ while control:  # main running loop of the game screen
         input_39 = my_button_37.check_click_manually(finger, queue_not_empty)
         if input_39:
             a3_arrow_status = 1
+            t_a1_3=pygame.time.get_ticks()-time_2_3_1
             if active_a1_3 != 0:
                 hint_a1 -= 1
                 active_a1_3 = 0
@@ -1766,6 +1830,7 @@ while control:  # main running loop of the game screen
         input_27 = my_button_25.check_click_manually(finger, queue_not_empty)
         if input_27:
             a1_apples_image_status = 1
+            t_a2_1=pygame.time.get_ticks()-time_2_1_1
             if active_a2_1 != 0:
                 hint_a2 -= 1
                 active_a2_1 = 0
@@ -1774,6 +1839,7 @@ while control:  # main running loop of the game screen
         input_28 = my_button_26.check_click_manually(finger, queue_not_empty)
         if input_28:
             a1_axe_image_status = 1
+            t_a2_2=pygame.time.get_ticks()-time_2_1_1
             if active_a2_2 != 0:
                 hint_a2 -= 1
                 active_a2_2 = 0
@@ -1782,6 +1848,8 @@ while control:  # main running loop of the game screen
         input_29 = my_button_27.check_click_manually(finger, queue_not_empty)
         if input_29:
             a1_ant_image_status = 1
+            t_a2_3=pygame.time.get_ticks()-time_2_1_1
+
             if active_a2_3 != 0:
                 hint_a2 -= 1
                 active_a2_3 = 0
@@ -1880,6 +1948,7 @@ while control:  # main running loop of the game screen
         input_31 = my_button_29.check_click_manually(finger, queue_not_empty)
         if input_31:
             a2_apples_status = 1
+            t_a3_1=pygame.time.get_ticks()-time_2_2_1
             if active_a3_1 != 0:
                 hint_a3 -= 1
                 active_a3_1 = 0
@@ -1888,6 +1957,7 @@ while control:  # main running loop of the game screen
         input_32 = my_button_30.check_click_manually(finger, queue_not_empty)
         if input_32:
             a2_alligator_status = 1
+            t_a3_2=pygame.time.get_ticks()-time_2_2_1
             if active_a3_2 != 0:
                 hint_a3 -= 1
                 active_a3_2 = 0
@@ -1896,6 +1966,7 @@ while control:  # main running loop of the game screen
         input_33 = my_button_31.check_click_manually(finger, queue_not_empty)
         if input_33:
             a2_axe_status = 1
+            t_a3_3=pygame.time.get_ticks()-time_2_2_1
             if active_a3_3 != 0:
                 hint_a3 -= 1
                 active_a3_3 = 0
@@ -1904,6 +1975,7 @@ while control:  # main running loop of the game screen
         input_34 = my_button_32.check_click_manually(finger, queue_not_empty)
         if input_34:
             a2_ant_status = 1
+            t_a3_4=pygame.time.get_ticks()-time_2_2_1
             if active_a3_4 != 0:
                 hint_a3 -= 1
                 active_a3_4 = 0
@@ -2018,6 +2090,7 @@ while control:  # main running loop of the game screen
         input_42 = my_button_40.check_click_manually(finger, queue_not_empty)
         if input_42:
             a4_apples_status = 1
+            t_a4_1=pygame.time.get_ticks()-time_2_4_1
             if active_a4_1 != 0:
                 hint_a4 -= 1
                 active_a4_1 = 0
@@ -2026,6 +2099,7 @@ while control:  # main running loop of the game screen
         input_43 = my_button_41.check_click_manually(finger, queue_not_empty)
         if input_43:
             a4_alligator_status = 1
+            t_a4_2=pygame.time.get_ticks()-time_2_4_1
             if active_a4_2 != 0:
                 hint_a4 -= 1
                 active_a4_2 = 0
@@ -2034,6 +2108,7 @@ while control:  # main running loop of the game screen
         input_44 = my_button_42.check_click_manually(finger, queue_not_empty)
         if input_44:
             a4_ant_status = 1
+            t_a4_3=pygame.time.get_ticks()-time_2_4_1
             if active_a4_3 != 0:
                 hint_a4 -= 1
                 active_a4_3 = 0
@@ -2042,6 +2117,7 @@ while control:  # main running loop of the game screen
         input_45 = my_button_43.check_click_manually(finger, queue_not_empty)
         if input_45:
             a4_ambulance_status = 1
+            t_a4_4=pygame.time.get_ticks()-time_2_4_1
             if active_a4_4 != 0:
                 hint_a4 -= 1
                 active_a4_4 = 0
@@ -2166,6 +2242,7 @@ while control:  # main running loop of the game screen
         input_58 = my_button_56.check_click_manually(finger, queue_not_empty)
         if input_58:
             t3_tap_image_status = 1
+            t_t1_1=pygame.time.get_ticks()-time_3_3_1
             if active_t1_1 != 0:
                 hint_t1 -= 1
                 active_t1_1 = 0
@@ -2174,6 +2251,7 @@ while control:  # main running loop of the game screen
         input_59 = my_button_57.check_click_manually(finger, queue_not_empty)
         if input_59:
             t3_tie_image_status = 1
+            t_t1_2=pygame.time.get_ticks()-time_3_3_1
             if active_t1_2 != 0:
                 hint_t1 -= 1
                 active_t1_2 = 0
@@ -2182,6 +2260,7 @@ while control:  # main running loop of the game screen
         input_60 = my_button_58.check_click_manually(finger, queue_not_empty)
         if input_60:
             t3_table_image_status = 1
+            t_t1_3=pygame.time.get_ticks()-time_3_3_1
             if active_t1_3 != 0:
                 hint_t1 -= 1
                 active_t1_3 = 0
@@ -2190,6 +2269,7 @@ while control:  # main running loop of the game screen
         input_61 = my_button_59.check_click_manually(finger, queue_not_empty)
         if input_61:
             t3_toad_image_status = 1
+            t_t1_4=pygame.time.get_ticks()-time_3_3_1
             if active_t1_4 != 0:
                 hint_t1 -= 1
                 active_t1_4 = 0
@@ -2294,7 +2374,6 @@ while control:  # main running loop of the game screen
 
     if t2_scene_status == 1:
         screen.blit(t2_scene, (0, 0))
-
         if time_3_2_1_status == 1:
             time_3_2_1 = pygame.time.get_ticks()
             time_3_2_1_status = 0
@@ -2302,6 +2381,7 @@ while control:  # main running loop of the game screen
         input_53 = my_button_51.check_click_manually(finger, queue_not_empty)
         if input_53:
             t2_tree_image_status = 1
+            t_t2_1 = pygame.time.get_ticks() - time_3_2_1
             if active_t2_1 != 0:
                 hint_t2 -= 1
                 active_t2_1 = 0
@@ -2310,6 +2390,7 @@ while control:  # main running loop of the game screen
         input_54 = my_button_52.check_click_manually(finger, queue_not_empty)
         if input_54:
             t2_table_image_status = 1
+            t_t2_2 = pygame.time.get_ticks() - time_3_2_1
             if active_t2_2 != 0:
                 hint_t2 -= 1
                 active_t2_2 = 0
@@ -2318,6 +2399,7 @@ while control:  # main running loop of the game screen
         input_55 = my_button_53.check_click_manually(finger, queue_not_empty)
         if input_55:
             t2_tent_image_status = 1
+            t_t2_3 = pygame.time.get_ticks() - time_3_2_1
             if active_t2_3 != 0:
                 hint_t2 -= 1
                 active_t2_3 = 0
@@ -2326,6 +2408,7 @@ while control:  # main running loop of the game screen
         input_56 = my_button_54.check_click_manually(finger, queue_not_empty)
         if input_56:
             t2_tomato_image_status = 1
+            t_t2_4 = pygame.time.get_ticks() - time_3_2_1
             if active_t2_4 != 0:
                 hint_t2 -= 1
                 active_t2_4 = 0
@@ -2434,6 +2517,7 @@ while control:  # main running loop of the game screen
         input_48 = my_button_46.check_click_manually(finger, queue_not_empty)
         if input_48:
             t1_tent_image_status = 1
+            t_t3_1 = pygame.time.get_ticks() - time_3_1_1
             if active_t3_1 != 0:
                 hint_t3 -= 1
                 active_t3_1 = 0
@@ -2442,6 +2526,7 @@ while control:  # main running loop of the game screen
         input_49 = my_button_47.check_click_manually(finger, queue_not_empty)
         if input_49:
             t1_table_image_status = 1
+            t_t3_2 = pygame.time.get_ticks() - time_3_1_1
             if active_t3_2 != 0:
                 hint_t3 -= 1
                 active_t3_2 = 0
@@ -2450,6 +2535,7 @@ while control:  # main running loop of the game screen
         input_50 = my_button_48.check_click_manually(finger, queue_not_empty)
         if input_50:
             t1_tiger_image_status = 1
+            t_t3_3 = pygame.time.get_ticks() - time_3_1_1
             if active_t3_3 != 0:
                 hint_t3 -= 1
                 active_t3_3 = 0
@@ -2458,6 +2544,7 @@ while control:  # main running loop of the game screen
         input_51 = my_button_49.check_click_manually(finger, queue_not_empty)
         if input_51:
             t1_tomato_image_status = 1
+            t_t3_4 = pygame.time.get_ticks() - time_3_1_1
             if active_t3_4 != 0:
                 hint_t3 -= 1
                 active_t3_4 = 0
@@ -2626,7 +2713,7 @@ while control:  # main running loop of the game screen
         print("error")
         # error_sound_new()
         global_click_check = 0
-
+        wrong_clicks+=1
     # if(queue_not_empty):
     # screen marker
     # print("projecting")

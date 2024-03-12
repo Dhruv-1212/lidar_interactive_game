@@ -227,6 +227,16 @@ stars_sound = mixer.Sound("stars.mp3")
 #for the branches scene and stars scene
 branches_sound = mixer.Sound("branches_sound.mp3")
 stars_scene_sound = mixer.Sound("stars_sound_1.mp3")
+empty = pygame.image.load("empty.png")
+point1 = pygame.image.load("1 point.png")
+point2 = pygame.image.load("2 points.png")
+point3 = pygame.image.load("3points.png")
+point4 = pygame.image.load("4points.png")
+
+empty_3 = pygame.image.load("empty_3.png")
+point1_3 = pygame.image.load("1 points_3.png")
+point2_3 = pygame.image.load("2points_3.png")
+point3_3 = pygame.image.load("3points_3.png")
 
 def sound_play():
     level_complete_sound = mixer.Sound("success-1-6297.mp3")
@@ -872,6 +882,7 @@ while control: #main running loop of the game screen
         if input_1:
             char_s_image_status = 1
             input_1 = 0
+            global_click_check = 1
 
     # my_button_2 = Button("NEXT",470,90,True,50,90)
 
@@ -886,6 +897,7 @@ while control: #main running loop of the game screen
         input_2 = my_button_2.check_click()
         if input_2:
             char_s_scene_status = 1
+            global_click_check = 1
 
 
     if char_s_scene_status == 1:
@@ -901,6 +913,7 @@ while control: #main running loop of the game screen
             if active_s1_1!=0:
                 hint_s1-=1
                 active_s1_1=0
+                global_click_check = 1
 
         input_4 = my_button_4.check_click()
         if input_4:
@@ -908,6 +921,7 @@ while control: #main running loop of the game screen
             if active_s1_2!=0:
                 hint_s1-=1
                 active_s1_2=0
+                global_click_check = 1
 
         input_5 = my_button_5.check_click()
         if input_5:
@@ -915,6 +929,7 @@ while control: #main running loop of the game screen
             if active_s1_3!=0:
                 hint_s1-=1
                 active_s1_3=0
+                global_click_check = 1
 
         input_6 = my_button_6.check_click()
         if input_6:
@@ -922,20 +937,32 @@ while control: #main running loop of the game screen
             if active_s1_4!=0:
                 hint_s1-=1
                 active_s1_4=0
+                global_click_check = 1
+
     #blitting the images of elements on the screen after their positions are clicked
 
         button_rect = pygame.rect.Rect((550,50 ),(230,40))
         button_rect_2 = pygame.rect.Rect((550,85 ),(230,40))
 
-        pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-        pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
-
-        hint_text="S remaining : " +str(hint_s1)
-        hint_text_2="S marked    : " + str(4-hint_s1)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text,(555 ,55))
-        screen.blit(button_text_2,(555 ,95))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        #
+        # hint_text="S remaining : " +str(hint_s1)
+        # hint_text_2="S marked    : " + str(4-hint_s1)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text,(555 ,55))
+        # screen.blit(button_text_2,(555 ,95))
+        if (hint_s1 == 4):
+            screen.blit(empty, (555, 95))
+        if (hint_s1 == 3):
+            screen.blit(point1, (555, 95))
+        if (hint_s1 == 2):
+            screen.blit(point2, (555, 95))
+        if (hint_s1 == 1):
+            screen.blit(point3, (555, 95))
+        if (hint_s1 == 0):
+            screen.blit(point4, (555, 95))
 
     if sun_image_status == 1:
 
@@ -1029,6 +1056,7 @@ while control: #main running loop of the game screen
         if input_7:
             night_scene_image_status = 1
             summary_status_s1=3
+            global_click_check = 1
 
 
     #-------------------------Day Scene ----->>>>  Night Scene----------------------------
@@ -1045,38 +1073,56 @@ while control: #main running loop of the game screen
             if active_s2_1!=0:
                 hint_s2-=1
                 active_s2_1=0
+                global_click_check = 1
+
         input_9 = my_button_5.check_click()
+
         if input_9:
             swing_image_status = 2
             if active_s2_2!=0:
                 hint_s2-=1
                 active_s2_2=0
+                global_click_check = 1
+
         input_10 = my_button_7.check_click()
         if input_10:
             spider_image_status = 2
             if active_s2_3!=0:
                 hint_s2-=1
                 active_s2_3=0
+                global_click_check = 1
+
         input_11 = my_button_8.check_click()
         if input_11:
             stars_image_status = 2
             if active_s2_4!=0:
                 hint_s2-=1
                 active_s2_4=0
+                global_click_check = 1
 
-        button_rect = pygame.rect.Rect((550,50 ),(230,40))
-        button_rect_2 = pygame.rect.Rect((550,85 ),(230,40))
+        button_rect = pygame.rect.Rect((550, 50), (230, 40))
+        button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
 
-        pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-        pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # 
+        # hint_text="S remaining : " +str(hint_s2)
+        # hint_text_2="S marked    : " + str(4-hint_s2)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text,(555 ,55))
+        # screen.blit(button_text_2,(555 ,95))
 
-        hint_text="S remaining : " +str(hint_s2)
-        hint_text_2="S marked    : " + str(4-hint_s2)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text,(555 ,55))
-        screen.blit(button_text_2,(555 ,95))
-
+        if (hint_s2 == 4):
+            screen.blit(empty, (555, 95))
+        if (hint_s2 == 3):
+            screen.blit(point1, (555, 95))
+        if (hint_s2 == 2):
+            screen.blit(point2, (555, 95))
+        if (hint_s2 == 1):
+            screen.blit(point3, (555, 95))
+        if (hint_s2 == 0):
+            screen.blit(point4, (555, 95))
     if stone_image_status == 2:
         screen.blit(stone_image,(8,527))
         screen.blit(stone_text,(280,600))
@@ -1113,52 +1159,53 @@ while control: #main running loop of the game screen
             time_1_2_status = 0
         time.sleep(2.0)
         night_delay_status = 2
-        summary_status_s2=1
+        summary_status_s2 = 1
 
+    if stone_image_status == 2 and swing_image_status == 2 and spider_image_status == 2 and stars_image_status == 2 and night_delay_status == 2 and summary_status_s2 == 1:
+        # summary slide_s2
 
-    if stone_image_status == 2 and swing_image_status == 2 and spider_image_status == 2 and stars_image_status == 2 and night_delay_status == 2 and summary_status_s2==1:
-        #summary slide_s2
+        screen.fill((255, 255, 255))
 
-        screen.fill((255,255,255))
-
-        screen.blit(stone_image,(20,40))
-        screen.blit(stone_text,(200,55))
+        screen.blit(stone_image, (20, 40))
+        screen.blit(stone_text, (200, 55))
         stones_sound.play()
         pygame.display.update()
         time.sleep(1)
 
-        screen.blit(swing_image,(20,370))
-        screen.blit(swing_text,(200,380))
+        screen.blit(swing_image, (20, 370))
+        screen.blit(swing_text, (200, 380))
         swing_sound.play()
         pygame.display.update()
         time.sleep(1)
 
-        screen.blit(spider_image,(950,40))
-        screen.blit(spider_text,(800,55))
+        screen.blit(spider_image, (950, 40))
+        screen.blit(spider_text, (800, 55))
         spider_sound.play()
         pygame.display.update()
         time.sleep(1)
 
-        screen.blit(stars_image,(950,380))
-        screen.blit(stars_text, (800,380))
+        screen.blit(stars_image, (950, 380))
+        screen.blit(stars_text, (800, 380))
         stars_sound.play()
         pygame.display.update()
         time.sleep(2)
-        summary_status_s2=2
+        summary_status_s2 = 2
 
-    if stone_image_status == 2 and swing_image_status == 2 and spider_image_status == 2 and stars_image_status == 2 and night_delay_status == 2 and summary_status_s2==2:
-        screen.fill((255,255,255))
-        screen.blit(winner_image_2,(165,20))
-        show_score(420,280,2)
+    if stone_image_status == 2 and swing_image_status == 2 and spider_image_status == 2 and stars_image_status == 2 and night_delay_status == 2 and summary_status_s2 == 2:
+        screen.fill((255, 255, 255))
+        screen.blit(winner_image_2, (165, 20))
+        show_score(420, 280, 2)
         if night_scene_sound_play_status == 1:
             night_scene_sound_play()
             night_scene_sound_play_status = 0
-        my_button_10 = Button("NEXT",480,500,True,50,90)
+        my_button_10 = Button("NEXT", 480, 500, True, 50, 90)
         my_button_10.draw()
         input_12 = my_button_10.check_click()
         if input_12:
             forest_scene_status = 1
-            summary_status_s2=3
+            summary_status_s2 = 3
+            night_delay_status = 3
+            global_click_check = 1
 
     #---------------------Night Scene ----->>>  Forest Scene------------------------------------
 
@@ -1174,37 +1221,55 @@ while control: #main running loop of the game screen
             if active_s3_1!=0:
                 hint_s3-=1
                 active_s3_1=0
+                global_click_check = 1
+
         input_14 = my_button_12.check_click()
         if input_14:
             spider_image_status = 3
             if active_s3_2!=0:
                 hint_s3-=1
                 active_s3_2=0
+                global_click_check = 1
+
         input_15 = my_button_13.check_click()
+
         if input_15:
             stone_image_status = 3
             if active_s3_3!=0:
                 hint_s3-=1
                 active_s3_3=0
+                global_click_check = 1
+
         input_16 = my_button_14.check_click()
         if input_16:
             snake_image_status = 3
             if active_s3_4!=0:
                 hint_s3-=1
                 active_s3_4=0
+                global_click_check = 1
 
         button_rect = pygame.rect.Rect((250,50 ),(230,40))
         button_rect_2 = pygame.rect.Rect((250,85 ),(230,40))
 
-        pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-        pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
-
-        hint_text="S remaining : " +str(hint_s3)
-        hint_text_2="S marked    : " + str(4-hint_s3)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text,(255 ,55))
-        screen.blit(button_text_2,(255 ,95))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # 
+        # hint_text="S remaining : " +str(hint_s3)
+        # hint_text_2="S marked    : " + str(4-hint_s3)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text, (255, 55))
+        # screen.blit(button_text_2, (255, 95))
+        if (hint_s3 == 4):
+            screen.blit(empty, (355, 95))
+        if (hint_s3 == 3):
+            screen.blit(point1, (355, 95))
+        if (hint_s3 == 2):
+            screen.blit(point2, (355, 95))
+        if (hint_s3 == 1):
+            screen.blit(point3, (355, 95))
+        if (hint_s3 == 0):
+            screen.blit(point4, (355, 95))
 
     if spider_image_status == 3:
         screen.blit(forest_spider_image,(0,600))
@@ -1288,7 +1353,8 @@ while control: #main running loop of the game screen
         input_17 = my_button_15.check_click()
         if input_17:
             branch_scene_status = 1
-            summary_status_s3=3
+            summary_status_s3 = 3
+            global_click_check = 1
 
     if branch_scene_status == 1:
         if time_1_4_1_status == 1:
@@ -1311,18 +1377,23 @@ while control: #main running loop of the game screen
         input_18 = my_button_18.check_click()
         if input_18:
             post_branch_scene_status = 1
-            branch_scene_status=0
+            branch_scene_status = 0
+            global_click_check = 1
+
         input_19 = my_button_16.check_click()
         if input_19:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
         input_20 = my_button_17.check_click()
         if input_20:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
         input_21 = my_button_19.check_click()
         if input_21:
             # wrong_answer_sound_play()
+            global_click_check = 1
             continue
 
 
@@ -1392,41 +1463,46 @@ while control: #main running loop of the game screen
         if input_37:
             a3_apples_status = 1
 
-            if active_a1_1!=0:
-                hint_a1-=1
-                active_a1_1=0
+            if active_a1_1 != 0:
+                hint_a1 -= 1
+                active_a1_1 = 0
+            global_click_check = 1
 
         input_38 = my_button_36.check_click()
         if input_38:
             a3_axe_status = 1
-            if active_a1_2!=0:
-                hint_a1-=1
-                active_a1_2=0
+            if active_a1_2 != 0:
+                hint_a1 -= 1
+                active_a1_2 = 0
+            global_click_check = 1
+
         input_39 = my_button_37.check_click()
         if input_39:
             a3_arrow_status = 1
             if active_a1_3!=0:
                 hint_a1-=1
                 active_a1_3=0
+            global_click_check = 1
+
         button_rect = pygame.rect.Rect((250,50 ),(230,40))
         button_rect_2 = pygame.rect.Rect((250,85 ),(230,40))
 
-        pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-        pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
-
-        hint_text="A remaining : " +str(hint_a1)
-        hint_text_2="A marked    : " + str(3-hint_a1)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text,(255 ,55))
-        screen.blit(button_text_2,(255 ,95))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # 
+        # hint_text="A remaining : " +str(hint_a1)
+        # hint_text_2="A marked    : " + str(3-hint_a1)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text,(255 ,55))
+        # screen.blit(button_text_2,(255 ,95))
 
     if a3_apples_status == 1:
         screen.blit(a1_apples,(0,0))
         screen.blit(apples_text,(300,150))
-        pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-
-        screen.blit(button_text,(555 ,55))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        #
+        # screen.blit(button_text,(555 ,55))
 
         if a3_apples_sound_status == 1:
             apples_sound.play()
@@ -1503,12 +1579,15 @@ while control: #main running loop of the game screen
             if active_a2_1!=0:
                 hint_a2-=1
                 active_a2_1=0
+            global_click_check = 1
+
         input_28 = my_button_26.check_click()
         if input_28:
             a1_axe_image_status = 1
             if active_a2_2!=0:
                 hint_a2-=1
                 active_a2_2=0
+            global_click_check = 1
 
         input_29 = my_button_27.check_click()
         if input_29:
@@ -1615,24 +1694,31 @@ while control: #main running loop of the game screen
             if active_a3_1!=0:
                 hint_a3-=1
                 active_a3_1=0
+            global_click_check = 1
+
         input_32 = my_button_30.check_click()
         if input_32:
             a2_alligator_status = 1
             if active_a3_2!=0:
                 hint_a3-=1
                 active_a3_2=0
+            global_click_check = 1
+
         input_33 = my_button_31.check_click()
         if input_33:
             a2_axe_status = 1
             if active_a3_3!=0:
                 hint_a3-=1
                 active_a3_3=0
+            global_click_check = 1
+
         input_34 = my_button_32.check_click()
         if input_34:
             a2_ant_status = 1
             if active_a3_4!=0:
                 hint_a3-=1
                 active_a3_4=0
+            global_click_check = 1
 
 
 
@@ -1753,6 +1839,7 @@ while control: #main running loop of the game screen
             if active_a4_1!=0:
                 hint_a4-=1
                 active_a4_1=0
+            global_click_check = 1
 
         input_43 = my_button_41.check_click()
         if input_43:
@@ -1760,6 +1847,7 @@ while control: #main running loop of the game screen
             if active_a4_2!=0:
                 hint_a4-=1
                 active_a4_2=0
+            global_click_check = 1
 
         input_44 = my_button_42.check_click()
         if input_44:
@@ -1833,7 +1921,6 @@ while control: #main running loop of the game screen
         pygame.display.update()
         time.sleep(1)
 
-
         screen.blit(a4_ambulance,(20,370))
         screen.blit(ambulance_text,(250,370))
         ambulance_sound.play()
@@ -1852,7 +1939,6 @@ while control: #main running loop of the game screen
         pygame.display.update()
         time.sleep(2)
         summary_status_a4=2
-
 
     if a4_apples_status == 1 and a4_ambulance_status == 1 and a4_ant_status == 1 and a4_alligator_status == 1 and  a4_delay_status == 2 and  summary_status_a4==2:
         screen.fill((255,255,255))
@@ -1890,7 +1976,6 @@ while control: #main running loop of the game screen
         if input_47:
             t3_scene_status = 1
 
-
     if t3_scene_status == 1:
         screen.blit(t3_scene,(0,0))
 
@@ -1904,26 +1989,34 @@ while control: #main running loop of the game screen
             if active_t1_1!=0:
                 hint_t1-=1
                 active_t1_1=0
+            global_click_check = 1
+
         input_59 = my_button_57.check_click()
         if input_59:
             t3_tie_image_status = 1
             if active_t1_2!=0:
                 hint_t1-=1
                 active_t1_2=0
+            global_click_check = 1
+
         input_60 = my_button_58.check_click()
         if input_60:
             t3_table_image_status = 1
             if active_t1_3!=0:
                 hint_t1-=1
                 active_t1_3=0
+            global_click_check = 1
+
         input_61 = my_button_59.check_click()
         if input_61:
             t3_toad_image_status = 1
             if active_t1_4!=0:
                 hint_t1-=1
                 active_t1_4=0
-        button_rect = pygame.rect.Rect((250,50 ),(230,40))
-        button_rect_2 = pygame.rect.Rect((250,85 ),(230,40))
+            global_click_check = 1
+
+        button_rect = pygame.rect.Rect((550, 50), (230, 40))
+        button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
 
         pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
         pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
@@ -1981,7 +2074,6 @@ while control: #main running loop of the game screen
         pygame.display.update()
         time.sleep(1)
 
-
         screen.blit(t3_tie,(20,40))
         screen.blit(tie_text,(200,40))
         tie_sound.play()
@@ -2033,24 +2125,31 @@ while control: #main running loop of the game screen
             if active_t2_1!=0:
                 hint_t2-=1
                 active_t2_1=0
+            global_click_check = 1
+
         input_54 = my_button_52.check_click()
         if input_54:
             t2_table_image_status = 1
             if active_t2_2!=0:
                 hint_t2-=1
                 active_t2_2=0
+            global_click_check = 1
+
         input_55 = my_button_53.check_click()
         if input_55:
             t2_tent_image_status = 1
             if active_t2_3!=0:
                 hint_t2-=1
                 active_t2_3=0
+            global_click_check = 1
+
         input_56 = my_button_54.check_click()
         if input_56:
             t2_tomato_image_status = 1
             if active_t2_4!=0:
                 hint_t2-=1
                 active_t2_4=0
+            global_click_check = 1
 
         button_rect = pygame.rect.Rect((550, 50), (230, 40))
         button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
@@ -2111,7 +2210,6 @@ while control: #main running loop of the game screen
         pygame.display.update()
         time.sleep(1)
 
-
         screen.blit(t2_table,(20,420))
         screen.blit(table_text,(350,370))
         table_sound.play()
@@ -2129,8 +2227,6 @@ while control: #main running loop of the game screen
         tomatoes_sound.play()
         pygame.display.update()
         time.sleep(2)
-
-
 
         summary_status_t2=2
     if t2_tent_image_status == 1 and t2_table_image_status == 1 and t2_tree_image_status == 1 and t2_tomato_image_status == 1 and t2_delay_status == 2 and summary_status_t2==2:
@@ -2162,24 +2258,31 @@ while control: #main running loop of the game screen
             if active_t3_1!=0:
                 hint_t3-=1
                 active_t3_1=0
+            global_click_check = 1
+
         input_49 = my_button_47.check_click()
         if input_49:
             t1_table_image_status = 1
             if active_t3_2!=0:
                 hint_t3-=1
                 active_t3_2=0
+            global_click_check = 1
+
         input_50 = my_button_48.check_click()
         if input_50:
             t1_tiger_image_status = 1
             if active_t3_3!=0:
                 hint_t3-=1
                 active_t3_3=0
+            global_click_check = 1
+
         input_51 = my_button_49.check_click()
         if input_51:
             t1_tomato_image_status = 1
-            if active_t3_4!=0:
-                hint_t3-=1
-                active_t3_4=0
+            if active_t3_4 != 0:
+                hint_t3 -= 1
+                active_t3_4 = 0
+            global_click_check = 1
 
         button_rect = pygame.rect.Rect((550, 50), (230, 40))
         button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
@@ -2282,7 +2385,7 @@ while control: #main running loop of the game screen
         control = False
 
     pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
-    my_button_61 = Button2("END GAME", 1007, 20, True, 47, 183, False)
+    my_button_61 = Button2("END GAME", 1007, 180, True, 47, 183, False)
     # my_button_61.check_hover()
     my_button_61.draw()
     input_break = my_button_61.check_click()
@@ -2291,11 +2394,11 @@ while control: #main running loop of the game screen
         control = False
         break
 
-    my_button_62 = Button3("S", 1057, 170, True, 93, 77, False)
+    my_button_62 = Button3("S", 1057, 280, True, 93, 77, False)
     my_button_62.check_hover()
     my_button_62.draw()
 
-    my_button_63 = Button3("A", 1057, 370, True, 92, 77, False)
+    my_button_63 = Button3("A", 1057, 430, True, 92, 77, False)
     my_button_63.check_hover()
     my_button_63.draw()
 
@@ -2307,6 +2410,7 @@ while control: #main running loop of the game screen
     if input_62:
         char_s_image_status = 1
         input_62 = 0
+        global_click_check = 1
 
     input_63 = my_button_63.check_click()
     if input_63:
@@ -2319,6 +2423,7 @@ while control: #main running loop of the game screen
         night_scene_image_status = 0
         branch_scene_status = 0
         forest_scene_status = 0
+        global_click_check = 1
 
     input_64 = my_button_64.check_click()
     if input_64:
@@ -2332,6 +2437,7 @@ while control: #main running loop of the game screen
         a1scene_status = 0
         a4_scene_status = 0
         a2_scene_status = 0
+        global_click_check = 1
 
         night_scene_image_status = 0
         branch_scene_status = 0

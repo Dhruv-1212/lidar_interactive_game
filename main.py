@@ -144,18 +144,19 @@ font3 = pygame.font.Font("freesansbold.ttf", 48)
 font4 = pygame.font.Font("freesansbold.ttf", 84)
 
 # winner image load
+winner_image_new=pygame.image.load("animal_img.jpg")
 winner_image = pygame.image.load("46141 (1).jpg")
-winner_image_2 = pygame.image.load("win2.png")
-winner_image_3 = pygame.image.load("win3.png")
-winner_image_4 = pygame.image.load("win4.png")
-winner_image_5 = pygame.image.load("win5.png")
-winner_image_6 = pygame.image.load("win6.png")
-winner_image_7 = pygame.image.load("win7.png")
-winner_image_8 = pygame.image.load("win8.png")
-winner_image_9 = pygame.image.load("win9.png")
-winner_image_10 = pygame.image.load("win10.png")
-winner_image_11 = pygame.image.load("win11.png")
-winner_image_12 = pygame.image.load("win9.png")
+# winner_image_new = pygame.image.load("win2.png")
+# winner_image_new = pygame.image.load("win3.png")
+# winner_image_new = pygame.image.load("win4.png")
+# winner_image_new = pygame.image.load("win5.png")
+# winner_image_new = pygame.image.load("win6.png")
+# winner_image_new = pygame.image.load("win7.png")
+# winner_image_new = pygame.image.load("win8.png")
+# winner_image_new = pygame.image.load("win9.png")
+# winner_image_new = pygame.image.load("win10.png")
+# winner_image_new = pygame.image.load("win11.png")
+# winner_image_new = pygame.image.load("win9.png")
 
 # sakshar image
 sakshar_image = pygame.image.load("SAKSHAR.jpg")
@@ -1145,9 +1146,9 @@ while control:  # main running loop of the game screen
         if s_command_status == 1:
             s_command.play()
             s_command_status = 0
-        screen.fill((255, 255, 255))
-        screen.blit(char_s_image, (180, 170))
-        my_button_2 = Button("NEXT", 470, 90, True, 50, 90)
+        screen.fill((255,255,255))
+        screen.blit(char_s_image,(180,170))
+        my_button_2 = Button("NEXT",480,550,True,50,90)
         my_button_2.draw()
         input_2 = my_button_2.check_click_manually(finger, queue_not_empty)
         if input_2:
@@ -1212,15 +1213,15 @@ while control:  # main running loop of the game screen
         # screen.blit(button_text, (555, 55))
         # screen.blit(button_text_2, (555, 95))
         if (hint_s1 == 4):
-            screen.blit(empty, (555, 95))
+            screen.blit(empty, (1015, 65))
         if (hint_s1 == 3):
-            screen.blit(point1, (555, 95))
+            screen.blit(point1, (1015, 65))
         if (hint_s1 == 2):
-            screen.blit(point2, (555, 95))
+            screen.blit(point2, (1015, 65))
         if (hint_s1 == 1):
-            screen.blit(point3, (555, 95))
+            screen.blit(point3, (1015, 65))
         if (hint_s1 == 0):
-            screen.blit(point4, (555, 95))
+            screen.blit(point4, (1015, 65))
 
     if sun_image_status == 1:
 
@@ -1272,7 +1273,7 @@ while control:  # main running loop of the game screen
     # summary slide
     if sun_image_status == 1 and snake_image_status == 1 and swing_image_status == 1 and stone_image_status == 1 and summary_status_s1 == 1:
         screen.fill((255, 255, 255))
-
+        hint_s1=-1
         screen.blit(stone_image, (20, 40))
         screen.blit(stone_text, (200, 55))
         stones_sound.play()
@@ -1300,12 +1301,12 @@ while control:  # main running loop of the game screen
 
     if sun_image_status == 1 and snake_image_status == 1 and swing_image_status == 1 and stone_image_status == 1 and delay_status == 2 and summary_status_s1 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image, (165, 20))
-        show_score(420, 280, 1)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 1)
         if sound_play_status == 1:
             # sound_play()
             sound_play_status = 0
-        my_button_9 = Button("NEXT", 480, 500, True, 50, 90)
+        my_button_9 = Button("NEXT",480,500,True,50,90)
         my_button_9.draw()
         input_7 = my_button_9.check_click_manually(finger, queue_not_empty)
         if input_7:
@@ -1372,15 +1373,15 @@ while control:  # main running loop of the game screen
         # screen.blit(button_text_2, (555, 95))
 
         if (hint_s2 == 4):
-            screen.blit(empty, (555, 95))
+            screen.blit(empty, (1015, 65))
         if (hint_s2 == 3):
-            screen.blit(point1, (555, 95))
+            screen.blit(point1, (1015, 65))
         if (hint_s2 == 2):
-            screen.blit(point2, (555, 95))
+            screen.blit(point2, (1015, 65))
         if (hint_s2 == 1):
-            screen.blit(point3, (555, 95))
+            screen.blit(point3, (1015, 65))
         if (hint_s2 == 0):
-            screen.blit(point4, (555, 95))
+            screen.blit(point4, (1015, 65))
     if stone_image_status == 2:
         screen.blit(stone_image, (8, 527))
         screen.blit(stone_text, (280, 600))
@@ -1424,7 +1425,7 @@ while control:  # main running loop of the game screen
         # summary slide_s2
 
         screen.fill((255, 255, 255))
-
+        hint_s2=-1
         screen.blit(stone_image, (20, 40))
         screen.blit(stone_text, (200, 55))
         stones_sound.play()
@@ -1452,8 +1453,8 @@ while control:  # main running loop of the game screen
 
     if stone_image_status == 2 and swing_image_status == 2 and spider_image_status == 2 and stars_image_status == 2 and night_delay_status == 2 and summary_status_s2 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_2, (165, 20))
-        show_score(420, 280, 2)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 2)
         if night_scene_sound_play_status == 1:
             night_scene_sound_play()
             night_scene_sound_play_status = 0
@@ -1523,15 +1524,15 @@ while control:  # main running loop of the game screen
         # screen.blit(button_text, (255, 55))
         # screen.blit(button_text_2, (255, 95))
         if (hint_s3 == 4):
-            screen.blit(empty, (355, 95))
+            screen.blit(empty, (1015, 65))
         if (hint_s3 == 3):
-            screen.blit(point1, (355, 95))
+            screen.blit(point1, (1015, 65))
         if (hint_s3 == 2):
-            screen.blit(point2, (355, 95))
+            screen.blit(point2, (1015, 65))
         if (hint_s3 == 1):
-            screen.blit(point3, (355, 95))
+            screen.blit(point3, (1015, 65))
         if (hint_s3 == 0):
-            screen.blit(point4, (355, 95))
+            screen.blit(point4, (1015, 65))
 
     if spider_image_status == 3:
         screen.blit(forest_spider_image, (0, 600))
@@ -1574,10 +1575,10 @@ while control:  # main running loop of the game screen
     if stone_image_status == 3 and spider_image_status == 3 and snake_image_status == 3 and sun_image_status == 3 and forest_delay_status == 2 and summary_status_s3 == 1:
         # summary slide
 
-        screen.fill((255, 255, 255))
-
-        screen.blit(stone_image, (20, 40))
-        screen.blit(stone_text, (200, 40))
+        screen.fill((255,255,255))
+        hint_s3=-1
+        screen.blit(stone_image,(20,40))
+        screen.blit(stone_text,(200,40))
         stones_sound.play()
         pygame.display.update()
         time.sleep(1)
@@ -1603,8 +1604,8 @@ while control:  # main running loop of the game screen
         summary_status_s3 = 2
     if stone_image_status == 3 and spider_image_status == 3 and snake_image_status == 3 and sun_image_status == 3 and forest_delay_status == 2 and summary_status_s3 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_3, (165, 20))
-        show_score(420, 280, 3)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 3)
         if forest_scene_sound_play_status == 1:
             forest_scene_sound_play()
             forest_scene_sound_play_status = 0
@@ -1659,12 +1660,12 @@ while control:  # main running loop of the game screen
     if post_branch_scene_status == 1:
         branch_scene_status = 2
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_4, (165, 20))
+        screen.blit(winner_image_new,(265,100))
         if time_1_4_status == 1:
             time_1_4 = pygame.time.get_ticks() - time_1_4_1
             time_1_4_status = 0
         # mixer.music.pause() #music paused here -------------------------------
-        show_score(420, 280, 4)
+        # show_score(420, 280, 4)
         if branch_scene_sound_status == 1:
             branch_scene_sound_play()
             branch_scene_sound_status = 0  # inactive
@@ -1699,9 +1700,9 @@ while control:  # main running loop of the game screen
             a_command_status = 0
         post_stars_scene_status = 2
 
-        screen.fill((255, 255, 255))
-        screen.blit(char_a_image, (120, 130))
-        my_button_24 = Button("NEXT", 445, 90, True, 50, 90)
+        screen.fill((255,255,255))
+        screen.blit(char_a_image,(120,130))
+        my_button_24 = Button("NEXT",480,550,True,50,90)
         my_button_24.draw()
         input_26 = my_button_24.check_click_manually(finger, queue_not_empty)
         if input_26:
@@ -1749,8 +1750,18 @@ while control:  # main running loop of the game screen
         # hint_text_2 = "A marked    : " + str(3 - hint_a1)
         # button_text = font.render(hint_text, True, "white")
         # button_text_2 = font.render(hint_text_2, True, "white")
-        # screen.blit(button_text, (255, 55))
-        # screen.blit(button_text_2, (255, 95))
+        # screen.blit(button_text,(255 ,55))
+        # screen.blit(button_text_2,(255 ,95))
+        if (hint_a1 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_a1 == 3):
+            screen.blit(empty_3, (1045, 65))
+        if (hint_a1 == 2):
+            screen.blit(point1_3, (1045, 65))
+        if (hint_a1 == 1):
+            screen.blit(point2_3, (1045, 65))
+        if (hint_a1 == 0):
+            screen.blit(point3_3, (1045, 65))
 
     if a3_apples_status == 1:
         screen.blit(a1_apples, (0, 0))
@@ -1788,7 +1799,7 @@ while control:  # main running loop of the game screen
             summary_status_a3 = 1
     if a3_apples_status == 1 and a3_axe_status == 1 and a3_arrow_status == 1 and a3_delay_status == 2 and summary_status_a3 == 1:
         screen.fill((255, 255, 255))
-
+        hint_a1=-1
         screen.blit(summary_apples, (20, 40))
         screen.blit(apples_text, (270, 40))
         apples_sound.play()
@@ -1809,8 +1820,8 @@ while control:  # main running loop of the game screen
         summary_status_a3 = 2
     if a3_apples_status == 1 and a3_axe_status == 1 and a3_arrow_status == 1 and a3_delay_status == 2 and summary_status_a3 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_5, (165, 20))
-        show_score(420, 280, 5)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 5)
         if a3_scene_sound_play_status == 1:
             a3_scene_sound_play()
             a3_scene_sound_play_status = 0
@@ -1855,8 +1866,8 @@ while control:  # main running loop of the game screen
                 active_a2_3 = 0
             global_click_check = 1
 
-        # button_rect = pygame.rect.Rect((550, 50), (230, 40))
-        # button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
+        button_rect = pygame.rect.Rect((550, 50), (230, 40))
+        button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
         #
         # pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
         # pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
@@ -1867,12 +1878,19 @@ while control:  # main running loop of the game screen
         # button_text_2 = font.render(hint_text_2, True, "white")
         # screen.blit(button_text, (555, 55))
         # screen.blit(button_text_2, (555, 95))
-
+        if (hint_a1 == 3):
+            screen.blit(empty_3, (1045, 65))
+        if (hint_a1 == 2):
+            screen.blit(point1_3, (1045, 65))
+        if (hint_a1 == 1):
+            screen.blit(point2_3, (1045, 65))
+        if (hint_a1 == 0):
+            screen.blit(point3_3, (1045, 65))
     if a1_apples_image_status == 1:
-        screen.blit(a1_apples, (0, 0))
-        screen.blit(apples_text, (250, 150))
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        screen.blit(button_text, (555, 55))
+        screen.blit(a1_apples,(0,0))
+        screen.blit(apples_text,(250,150))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # screen.blit(button_text,(555 ,55))
 
         if a1_apples_sound_status == 1:
             apples_sound.play()
@@ -1905,6 +1923,7 @@ while control:  # main running loop of the game screen
 
     if a1_apples_image_status == 1 and a1_axe_image_status == 1 and a1_ant_image_status == 1 and a1_delay_status == 2 and summary_status_a1 == 1:
         screen.fill((255, 255, 255))
+        hint_a2=-1
 
         screen.blit(summary_apples, (20, 40))
         screen.blit(apples_text, (270, 40))
@@ -1927,8 +1946,8 @@ while control:  # main running loop of the game screen
 
     if a1_apples_image_status == 1 and a1_axe_image_status == 1 and a1_ant_image_status == 1 and a1_delay_status == 2 and summary_status_a1 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_6, (165, 20))
-        show_score(420, 280, 6)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 6)
         if a1_scene_sound_play_status == 1:
             a1_scene_sound_play()
             a1_scene_sound_play_status = 0
@@ -1981,8 +2000,8 @@ while control:  # main running loop of the game screen
                 active_a3_4 = 0
             global_click_check = 1
 
-        # button_rect = pygame.rect.Rect((550, 50), (230, 40))
-        # button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
+        button_rect = pygame.rect.Rect((550, 50), (230, 40))
+        button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
         #
         # pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
         # pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
@@ -1993,11 +2012,22 @@ while control:  # main running loop of the game screen
         # button_text_2 = font.render(hint_text_2, True, "white")
         # screen.blit(button_text, (555, 55))
         # screen.blit(button_text_2, (555, 95))
+        if (hint_a3 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_a3 == 3):
+            screen.blit(point1, (1015, 65))
+        if (hint_a3 == 2):
+            screen.blit(point2, (1015, 65))
+        if (hint_a3 == 1):
+            screen.blit(point3, (1015, 65))
+        if (hint_a3 == 0):
+            screen.blit(point4, (1015, 65))
+
     if a2_apples_status == 1:
-        screen.blit(a2_apples, (0, 0))
-        screen.blit(apples_text, (350, 150))
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        screen.blit(button_text, (555, 55))
+        screen.blit(a2_apples,(0,0))
+        screen.blit(apples_text,(350,150))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # screen.blit(button_text,(555 ,55))
         if a2_apples_sound_status == 1:
             apples_sound.play()
             a2_apples_sound_status = 0
@@ -2032,11 +2062,12 @@ while control:  # main running loop of the game screen
             time_2_2_status = 0
         summary_status_a2 = 1
 
-    if a2_apples_status == 1 and a2_axe_status == 1 and a2_ant_status == 1 and a2_alligator_status == 1 and a2_delay_status == 2 and summary_status_a2 == 1:
-        screen.fill((255, 255, 255))
 
-        screen.blit(summary_apples, (20, 40))
-        screen.blit(apples_text, (270, 40))
+    if a2_apples_status == 1 and a2_axe_status == 1 and a2_ant_status == 1 and a2_alligator_status == 1 and  a2_delay_status == 2 and summary_status_a2==1:
+        screen.fill((255,255,255))
+        hint_a3=-1
+        screen.blit(summary_apples,(20,40))
+        screen.blit(apples_text,(270,40))
         apples_sound.play()
         pygame.display.update()
         time.sleep(1)
@@ -2063,8 +2094,8 @@ while control:  # main running loop of the game screen
 
     if a2_apples_status == 1 and a2_axe_status == 1 and a2_ant_status == 1 and a2_alligator_status == 1 and a2_delay_status == 2 and summary_status_a2 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_7, (165, 20))
-        show_score(420, 280, 7)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 7)
         if a2_scene_sound_play_status == 1:
             a2_scene_sound_play()
             a2_scene_sound_play_status = 0
@@ -2133,11 +2164,21 @@ while control:  # main running loop of the game screen
         # button_text_2 = font.render(hint_text_2, True, "white")
         # screen.blit(button_text, (555, 55))
         # screen.blit(button_text_2, (555, 95))
+        if (hint_a4 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_a4 == 3):
+            screen.blit(point1, (1015, 65))
+        if (hint_a4 == 2):
+            screen.blit(point2, (1015, 65))
+        if (hint_a4 == 1):
+            screen.blit(point3, (1015, 65))
+        if (hint_a4 == 0):
+            screen.blit(point4, (1015, 65))
     if a4_apples_status == 1:
-        screen.blit(a2_apples, (0, 0))
-        screen.blit(apples_text, (330, 150))
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        screen.blit(button_text, (555, 55))
+        screen.blit(a2_apples,(0,0))
+        screen.blit(apples_text,(330,150))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # screen.blit(button_text,(555 ,55))
         if a4_apples_sound_status == 1:
             apples_sound.play()
             a4_apples_sound_status = 0
@@ -2167,12 +2208,12 @@ while control:  # main running loop of the game screen
         pygame.display.update()  # Update the screen to show the fourth image
         time.sleep(2.0)
         a4_delay_status = 2
-        summary_status_a4 = 1
-    if a4_apples_status == 1 and a4_ambulance_status == 1 and a4_ant_status == 1 and a4_alligator_status == 1 and a4_delay_status == 2 and summary_status_a4 == 1:
-        screen.fill((255, 255, 255))
-
-        screen.blit(summary_apples, (20, 40))
-        screen.blit(apples_text, (270, 40))
+        summary_status_a4=1
+    if a4_apples_status == 1 and a4_ambulance_status == 1 and a4_ant_status == 1 and a4_alligator_status == 1 and  a4_delay_status == 2 and  summary_status_a4==1:
+        screen.fill((255,255,255))
+        hint_a4=-1
+        screen.blit(summary_apples,(20,40))
+        screen.blit(apples_text,(270,40))
         apples_sound.play()
         pygame.display.update()
         time.sleep(1)
@@ -2198,8 +2239,8 @@ while control:  # main running loop of the game screen
 
     if a4_apples_status == 1 and a4_ambulance_status == 1 and a4_ant_status == 1 and a4_alligator_status == 1 and a4_delay_status == 2 and summary_status_a4 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_8, (165, 20))
-        show_score(420, 280, 8)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 8)
         if a4_scene_sound_play_status == 1:
             a4_scene_sound_play()
             a4_scene_sound_play_status = 0
@@ -2225,7 +2266,7 @@ while control:  # main running loop of the game screen
             time_3_1_1 = pygame.time.get_ticks()
             time_3_1_1_status = 0
 
-        my_button_45 = Button("NEXT", 475, 90, True, 50, 90)
+        my_button_45 = Button("NEXT",480,550,True,50,90)
         my_button_45.draw()
 
         input_47 = my_button_45.check_click_manually(finger, queue_not_empty)
@@ -2278,15 +2319,25 @@ while control:  # main running loop of the game screen
         button_rect = pygame.rect.Rect((550, 50), (230, 40))
         button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
 
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
-
-        hint_text = "A remaining : " + str(hint_t1)
-        hint_text_2 = "A marked    : " + str(4 - hint_t1)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text, (555, 55))
-        screen.blit(button_text_2, (555, 95))
+        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
+        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # 
+        # hint_text="A remaining : " +str(hint_t1)
+        # hint_text_2="A marked    : " + str(4-hint_t1)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text,(255 ,55))
+        # screen.blit(button_text_2,(255 ,95))
+        if (hint_t1 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_t1 == 3):
+            screen.blit(point1, (1015, 65))
+        if (hint_t1 == 2):
+            screen.blit(point2, (1015, 65))
+        if (hint_t1 == 1):
+            screen.blit(point3, (1015, 65))
+        if (hint_t1 == 0):
+            screen.blit(point4, (1015, 65))
     if t3_tap_image_status == 1:
         screen.blit(t3_tap, (0, 395))
         screen.blit(tap_text, (50, 320))
@@ -2325,11 +2376,11 @@ while control:  # main running loop of the game screen
         t3_delay_status = 2
         summary_status_t3 = 1
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3 == 1:
-        screen.fill((255, 255, 255))
-
-        screen.blit(t3_tap, (20, 370))
-        screen.blit(tap_text, (190, 370))
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3==1:
+        screen.fill((255,255,255))
+        hint_t1=-1
+        screen.blit(t3_tap,(20,370))
+        screen.blit(tap_text,(190,370))
         tap_sound.play()
         pygame.display.update()
         time.sleep(1)
@@ -2356,8 +2407,8 @@ while control:  # main running loop of the game screen
 
     if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_9, (165, 20))
-        show_score(420, 280, 9)
+        screen.blit(winner_image_new,(265,100))
+        # show_score(420, 280, 9)
         if t3_scene_sound_play_status == 1:
             t3_scene_sound_play()
             t3_scene_sound_play_status = 0
@@ -2417,15 +2468,25 @@ while control:  # main running loop of the game screen
         button_rect = pygame.rect.Rect((550, 50), (230, 40))
         button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
 
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
-
-        hint_text = "A remaining : " + str(hint_t2)
-        hint_text_2 = "A marked    : " + str(4 - hint_t2)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text, (555, 55))
-        screen.blit(button_text_2, (555, 95))
+        # pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
+        # pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
+        #
+        # hint_text = "A remaining : " + str(hint_t2)
+        # hint_text_2 = "A marked    : " + str(4 - hint_t2)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text, (555, 55))
+        # screen.blit(button_text_2, (555, 95))
+        if (hint_t2 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_t2 == 3):
+            screen.blit(point1, (1015, 65))
+        if (hint_t2 == 2):
+            screen.blit(point2, (1015, 65))
+        if (hint_t2 == 1):
+            screen.blit(point3, (1015, 65))
+        if (hint_t2 == 0):
+            screen.blit(point4, (1015, 65))
     if t2_tent_image_status == 1:
         screen.blit(t2_tent, (399, 483))
         screen.blit(tent_text, (450, 400))
@@ -2493,8 +2554,8 @@ while control:  # main running loop of the game screen
         summary_status_t2 = 2
     if t2_tent_image_status == 1 and t2_table_image_status == 1 and t2_tree_image_status == 1 and t2_tomato_image_status == 1 and t2_delay_status == 2 and summary_status_t2 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_10, (255, 70))
-        show_score(420, 280, 10)
+        screen.blit(winner_image_new, (255, 70))
+        # show_score(420, 280, 10)
         if t2_scene_sound_play_status == 1:
             t2_scene_sound_play()
             t2_scene_sound_play_status = 0
@@ -2552,17 +2613,26 @@ while control:  # main running loop of the game screen
 
         button_rect = pygame.rect.Rect((550, 50), (230, 40))
         button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
-
-        pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
-        pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
-
-        hint_text = "A remaining : " + str(hint_t3)
-        hint_text_2 = "A marked    : " + str(4 - hint_t3)
-        button_text = font.render(hint_text, True, "white")
-        button_text_2 = font.render(hint_text_2, True, "white")
-        screen.blit(button_text, (555, 55))
-        screen.blit(button_text_2, (555, 95))
-
+        #
+        # pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
+        # pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
+        #
+        # hint_text = "A remaining : " + str(hint_t3)
+        # hint_text_2 = "A marked    : " + str(4 - hint_t3)
+        # button_text = font.render(hint_text, True, "white")
+        # button_text_2 = font.render(hint_text_2, True, "white")
+        # screen.blit(button_text, (555, 55))
+        # screen.blit(button_text_2, (555, 95))
+        if (hint_t3 == 4):
+            screen.blit(empty, (1015, 65))
+        if (hint_t3 == 3):
+            screen.blit(point1, (1015, 65))
+        if (hint_t3 == 2):
+            screen.blit(point2, (1015, 65))
+        if (hint_t3 == 1):
+            screen.blit(point3, (1015, 65))
+        if (hint_t3 == 0):
+            screen.blit(point4, (1015, 65))
     if t1_tent_image_status == 1:
         screen.blit(t1_tent, (0, 382))
         screen.blit(tent_text, (150, 300))
@@ -2601,11 +2671,12 @@ while control:  # main running loop of the game screen
         t1_delay_status = 2
         summary_status_t1 = 1
 
-    if t1_tent_image_status == 1 and t1_table_image_status == 1 and t1_tiger_image_status == 1 and t1_tomato_image_status == 1 and t1_delay_status == 2 and summary_status_t1 == 1:
-        screen.fill((255, 255, 255))
 
-        screen.blit(t2_tent, (20, 40))
-        screen.blit(tent_text, (300, 40))
+    if t1_tent_image_status == 1 and t1_table_image_status == 1 and t1_tiger_image_status == 1 and t1_tomato_image_status == 1 and t1_delay_status == 2 and summary_status_t1==1:
+        screen.fill((255,255,255))
+        hint_t3=-1
+        screen.blit(t2_tent,(20,40))
+        screen.blit(tent_text,(300,40))
         tent_sound.play()
         pygame.display.update()
         time.sleep(1)
@@ -2631,8 +2702,8 @@ while control:  # main running loop of the game screen
 
     if t1_tent_image_status == 1 and t1_table_image_status == 1 and t1_tiger_image_status == 1 and t1_tomato_image_status == 1 and t1_delay_status == 2 and summary_status_t1 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_11, (255, 70))
-        show_score(420, 280, 11)
+        screen.blit(winner_image_new, (255, 70))
+        # show_score(420, 280, 11)
         if t1_scene_sound_play_status == 1:
             t1_scene_sound_play()
             t1_scene_sound_play_status = 0
@@ -2728,5 +2799,6 @@ with open('analytics.txt', 'a') as file:
     file.write(str(time_1_1) + " " + str(time_1_2) + " " + str(time_1_3) + " " + str(time_1_4) +
                " " + str(time_1_5) + " " + str(time_2_1) + " " + str(time_2_2) + " " + str(time_2_3)
                + " " + str(time_2_4) + " " + str(time_3_1) + " " + str(time_3_2) + " " +
-               str(time_3_3) + " " + str(total_game_time) + "\n")
+               str(time_3_3) + " " + str(total_game_time) + " "+ str(t_a1_1) + " "+ str(t_a1_2) + " "+str(t_a1_3)  + " "+str(t_a2_1) + " "+str(t_a2_2) + " "+str(t_a2_3) + " "+str(t_a3_1) + " "+str(t_a3_2) + " "+str(t_a3_3) + " "+str(t_a4_1) + " "+str(t_a4_2) + " "+str(t_a4_3) + " "+ str(t_a4_4) + " "+str(t_s1_1) + " "+ str(t_s1_2) + " "+ str(t_s1_3) + " " + str(t_s1_4) + " " +str(t_s2_1) + " " + str(t_s2_2) + " " +str(t_s2_3) + " " +str(t_s2_4) + " " +str(t_s3_1) + " " +str(t_s3_2) + " " +str(t_s3_3) + " " +str(t_s3_4) + " " + str(t_t1_1) + " "+ str(t_t1_2) + " "+ str(t_t1_3) + " " + str(t_t1_4) + " " +str(t_t2_1) + " " + str(t_t2_2) + " " +str(t_t2_3) + " " +str(t_t2_4) + " " +str(t_t3_1) + " " +str(t_t3_2) + " " +str(t_t3_3) + " " +str(t_t3_4) + " " +str(wrong_clicks)+str(correct_clicks)+"\n")
 pygame.quit()
+

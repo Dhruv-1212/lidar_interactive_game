@@ -247,6 +247,9 @@ point1_3 = pygame.image.load("1 points_3.png")
 point2_3 = pygame.image.load("2points_3.png")
 point3_3 = pygame.image.load("3points_3.png")
 
+continue_text = font4.render("Please Continue", True, (102, 0, 204))
+
+
 def sound_play():
     level_complete_sound = mixer.Sound("success-1-6297.mp3")
     level_complete_sound.play()
@@ -942,7 +945,7 @@ my_button_30 = Button("ALLIGATOR", 40, 470, True, 100, 270)
 my_button_30.draw()
 my_button_31 = Button("AXE", 410, 400, True, 90, 100)
 my_button_31.draw()
-my_button_32 = Button("ANT", 860, 350, True, 95, 140)
+my_button_32 = Button("ANT", 830, 320, True, 115, 170)
 my_button_32.draw()
 
 # for a3 scene
@@ -950,7 +953,7 @@ my_button_35 = Button("APPLES", 400, 150, True, 250, 400)
 my_button_35.draw()
 my_button_36 = Button("AXE", 370, 470, True, 95, 90)
 my_button_36.draw()  # --------------26 buttons so far
-my_button_37 = Button("ARROW", 810, 420, True, 120, 160)
+my_button_37 = Button("ARROW", 780, 390, True, 150, 180)
 my_button_37.draw()
 
 # for a4scene
@@ -958,7 +961,7 @@ my_button_40 = Button("APPLES", 570, 100, True, 180, 280)
 my_button_40.draw()
 my_button_41 = Button("ALLIGATOR", 40, 470, True, 100, 270)
 my_button_41.draw()
-my_button_42 = Button("ANT", 780, 270, True, 125, 170)
+my_button_42 = Button("ANT", 750, 230, True, 155, 190)
 my_button_42.draw()
 my_button_43 = Button("AMBULANCE", 500, 550, True, 120, 320)
 my_button_43.draw()
@@ -1323,10 +1326,12 @@ while control:  # main running loop of the game screen
 
     if sun_image_status == 1 and snake_image_status == 1 and swing_image_status == 1 and stone_image_status == 1 and delay_status == 2 and summary_status_s1 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 1)
+        screen.blit(continue_text,(200, 200))
         if sound_play_status == 1:
             # sound_play()
+            please_continue_audio.play()
             sound_play_status = 0
         my_button_9 = Button("NEXT",480,500,True,50,90)
         my_button_9.draw()
@@ -1336,6 +1341,8 @@ while control:  # main running loop of the game screen
             night_scene_image_status = 1
             summary_status_s1 = 3
             global_click_check = 1
+            char_s_scene_status=-1
+
 
     # -------------------------Day Scene ----->>>>  Night Scene----------------------------
 
@@ -1489,9 +1496,11 @@ while control:  # main running loop of the game screen
         screen.fill((255, 255, 255))
         # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 2)
+        screen.blit(continue_text,(200, 200))
 
         if night_scene_sound_play_status == 1:
-            night_scene_sound_play()
+            # night_scene_sound_play()
+            please_continue_audio.play()
             night_scene_sound_play_status = 0
         my_button_10 = Button("NEXT", 480, 500, True, 50, 90)
         my_button_10.draw()
@@ -1654,10 +1663,13 @@ while control:  # main running loop of the game screen
         summary_status_s3 = 2
     if stone_image_status == 3 and spider_image_status == 3 and snake_image_status == 3 and sun_image_status == 3 and forest_delay_status == 2 and summary_status_s3 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 3)
+        screen.blit(continue_text,(200, 200))
+
         if forest_scene_sound_play_status == 1:
-            forest_scene_sound_play()
+            # forest_scene_sound_play()
+            please_continue_audio.play()
             forest_scene_sound_play_status = 0
         my_button_15 = Button("NEXT", 488, 500, True, 50, 90)
         my_button_15.draw()
@@ -1710,14 +1722,17 @@ while control:  # main running loop of the game screen
     if post_branch_scene_status == 1:
         branch_scene_status = 2
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         if time_1_4_status == 1:
             time_1_4 = pygame.time.get_ticks() - time_1_4_1
             time_1_4_status = 0
         # mixer.music.pause() #music paused here -------------------------------
         # show_score(420, 280, 4)
+        screen.blit(continue_text,(200, 200))
+
         if branch_scene_sound_status == 1:
-            branch_scene_sound_play()
+            # branch_scene_sound_play()
+            please_continue_audio.play()
             branch_scene_sound_status = 0  # inactive
         my_button_20 = Button("NEXT", 485, 500, True, 50, 90)
         my_button_20.draw()
@@ -1879,10 +1894,12 @@ while control:  # main running loop of the game screen
         summary_status_a3 = 2
     if a3_apples_status == 1 and a3_axe_status == 1 and a3_arrow_status == 1 and a3_delay_status == 2 and summary_status_a3 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 5)
+        screen.blit(continue_text,(200, 200))
         if a3_scene_sound_play_status == 1:
-            a3_scene_sound_play()
+            # a3_scene_sound_play()
+            please_continue_audio.play()
             a3_scene_sound_play_status = 0
         my_button_39 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_39.draw()
@@ -2013,10 +2030,12 @@ while control:  # main running loop of the game screen
 
     if a1_apples_image_status == 1 and a1_axe_image_status == 1 and a1_ant_image_status == 1 and a1_delay_status == 2 and summary_status_a1 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 6)
+        screen.blit(continue_text,(200, 200))
         if a1_scene_sound_play_status == 1:
             a1_scene_sound_play()
+            please_continue_audio.play()
             a1_scene_sound_play_status = 0
         my_button_28 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_28.draw()
@@ -2173,10 +2192,12 @@ while control:  # main running loop of the game screen
 
     if a2_apples_status == 1 and a2_axe_status == 1 and a2_ant_status == 1 and a2_alligator_status == 1 and a2_delay_status == 2 and summary_status_a2 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 7)
+        screen.blit(continue_text,(200, 200))
         if a2_scene_sound_play_status == 1:
-            a2_scene_sound_play()
+            # a2_scene_sound_play()
+            please_continue_audio.play()
             a2_scene_sound_play_status = 0
         my_button_34 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_34.draw()
@@ -2329,10 +2350,12 @@ while control:  # main running loop of the game screen
 
     if a4_apples_status == 1 and a4_ambulance_status == 1 and a4_ant_status == 1 and a4_alligator_status == 1 and a4_delay_status == 2 and summary_status_a4 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new,(265,100))
+        # screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 8)
+        screen.blit(continue_text,(200, 200))
         if a4_scene_sound_play_status == 1:
-            a4_scene_sound_play()
+            # a4_scene_sound_play()
+            please_continue_audio.play()
             a4_scene_sound_play_status = 0
         my_button_44 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_44.draw()
@@ -2668,10 +2691,13 @@ while control:  # main running loop of the game screen
         summary_status_t2 = 2
     if t2_tent_image_status == 1 and t2_table_image_status == 1 and t2_tree_image_status == 1 and t2_tomato_image_status == 1 and t2_delay_status == 2 and summary_status_t2 == 2:
         screen.fill((255, 255, 255))
-        screen.blit(winner_image_new, (255, 70))
+        # screen.blit(winner_image_new, (255, 70))
         # show_score(420, 280, 10)
+        screen.blit(continue_text,(200, 200))
+
         if t2_scene_sound_play_status == 1:
-            t2_scene_sound_play()
+            # t2_scene_sound_play()
+            please_continue_audio.play()
             t2_scene_sound_play_status = 0
         my_button_55 = Button("NEXT", 480, 550, True, 50, 90)
         my_button_55.draw()
@@ -2830,8 +2856,11 @@ while control:  # main running loop of the game screen
         screen.fill((255, 255, 255))
         screen.blit(winner_image_new, (255, 70))
         # show_score(420, 280, 11)
+        # screen.blit(continue_text,(200, 200))
+
         if t1_scene_sound_play_status == 1:
-            t1_scene_sound_play()
+            # t1_scene_sound_play()
+            # please_continue_audio.play()
             t1_scene_sound_play_status = 0
         # my_button_50 = Button("NEXT",480,550,True,50,90)
         my_button_50 = Button("FINISH", 480, 570, True, 50, 110)

@@ -94,11 +94,12 @@ t2_table = pygame.image.load("t2_table.png")
 t2_tent = pygame.image.load("t2_tent.png")
 t2_tree = pygame.image.load("t2_tree.png")
 
-t3_scene = pygame.image.load("t3_scene.png")
+t3_scene = pygame.image.load("t3_scene (1).jpg")
 t3_table = pygame.image.load("t3_table.png")
 t3_tap = pygame.image.load("t3_tap.png")
 t3_tie = pygame.image.load("t3_tie.png")
 t3_toad = pygame.image.load("t3_toad.png")
+t3_turtle= pygame.image.load("t3_turtle.png")
 
 # Setting the Title
 pygame.display.set_caption("Game")
@@ -206,6 +207,7 @@ tent_sound = mixer.Sound("tent_sound.mp3")
 tie_sound = mixer.Sound("tie_sound.mp3")
 tiger_sound = mixer.Sound("tiger_sound.mp3")
 toad_sound = mixer.Sound("toad_sound.mp3")
+turtle_sound = mixer.Sound("t3_turtle.mp3")
 tomatoes_sound = mixer.Sound("tomatoes_sound.mp3")
 tree_sound = mixer.Sound("tree_sound.mp3")
 table_text = font_new.render("table", True, (0, 155, 0))
@@ -214,6 +216,7 @@ tent_text = font_new.render("tent", True, (70, 70, 70))
 tie_text = font_new.render("tie", True, (153, 0, 76))
 tiger_text = font_new.render("tiger", True, (153, 0, 76))
 toad_text = font_new.render("toad", True, (153, 0, 76))
+turtle_text= font_new.render("turtle", True, (153, 0, 76))
 tomatoes_text = font_new.render("tomatoes", True, (153, 0, 76))
 tree_text = font_new.render("tree", True, (153, 0, 76))
 
@@ -433,7 +436,7 @@ class Button2:
         if self.hovered:
             button_color = (49, 20, 50)  # Red when hovered
         else:
-            button_color = (122, 73, 136)  # Default color
+            button_color = "#f07e0c"  # Default color
 
         button_text = font2.render(self.text, True, "white")
         button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
@@ -484,7 +487,7 @@ class Button3:
         if self.hovered:
             button_color = (49, 20, 50)  # Red when hovered
         else:
-            button_color = (122, 73, 136)  # Default color
+            button_color = "#f07e0c"   # Default color
 
         button_text = font4.render(self.text, True, "white")
         button_rect = pygame.rect.Rect((self.x_pos, self.y_pos), (self.width, self.height))
@@ -680,9 +683,9 @@ t3_scene_status = 0
 
 t3_tie_image_status = 0  # inactive
 t3_tap_image_status = 0  # inactive
-t3_toad_image_status = 0
+t3_turtle_image_status = 0
 t3_table_image_status = 0
-t3_toad_sound_status = 1
+t3_turtle_sound_status = 1
 t3_table_sound_status = 1
 t3_tap_sound_status = 1
 t3_tie_sound_status = 1
@@ -818,17 +821,17 @@ active_t4_2 = 4
 active_t4_3 = 4
 active_t4_4 = 4
 
-hint_s1 = 4
-hint_s2 = 4
-hint_s3 = 4
-hint_s4 = 4  # not used
-hint_a1 = 3
-hint_a2 = 3
-hint_a3 = 4
-hint_a4 = 4
-hint_t1 = 4
-hint_t2 = 4
-hint_t3 = 4
+hint_s1=4
+hint_s2=4
+hint_s3=4
+hint_s4=4#not used
+hint_a1=3
+hint_a2=3
+hint_a3=4
+hint_a4=4
+hint_t1=4
+hint_t2=4
+hint_t3=4
 
 summary_status_s1 = 0
 summary_status_s2 = 0
@@ -903,7 +906,7 @@ my_button_5 = Button("SWING", 500, 200, True, 240, 150)
 my_button_6 = Button("STONE", 50, 500, True, 150, 150)
 my_button_6.draw()
 
-my_button_7 = Button("SPIDER", 780, 250, True, 100, 90)
+my_button_7 = Button("SPIDER", 760, 230, True, 120, 110)
 my_button_7.draw()
 
 my_button_8 = Button("STARS", 40, 10, True, 120, 165)
@@ -912,7 +915,7 @@ my_button_8.draw()
 my_button_11 = Button("SUN", 770, 10, True, 180, 180)
 my_button_11.draw()
 
-my_button_12 = Button("SPIDER", 0, 600, True, 100, 100)
+my_button_12 = Button("SPIDER", 0, 580, True, 110, 110)
 my_button_12.draw()
 
 my_button_13 = Button("STONE", 320, 590, True, 85, 85)
@@ -925,10 +928,10 @@ my_button_14.draw()
 my_button_25 = Button("APPLES", 400, 150, True, 250, 400)
 my_button_25.draw()
 
-my_button_26 = Button("AXE", 400, 510, True, 55, 50)
+my_button_26 = Button("AXE", 380, 490, True, 75, 70)
 my_button_26.draw()  # --------------26 buttons so far
 
-my_button_27 = Button("ANT", 858, 550, True, 45, 90)
+my_button_27 = Button("ANT", 818, 510, True, 85, 130)
 my_button_27.draw()
 
 # for a2 scene
@@ -936,17 +939,17 @@ my_button_29 = Button("APPLES", 570, 100, True, 180, 280)
 my_button_29.draw()
 my_button_30 = Button("ALLIGATOR", 40, 470, True, 100, 270)
 my_button_30.draw()
-my_button_31 = Button("AXE", 440, 430, True, 80, 90)
+my_button_31 = Button("AXE", 410, 400, True, 90, 100)
 my_button_31.draw()
-my_button_32 = Button("ANT", 900, 390, True, 45, 90)
+my_button_32 = Button("ANT", 860, 350, True, 95, 140)
 my_button_32.draw()
 
 # for a3 scene
 my_button_35 = Button("APPLES", 400, 150, True, 250, 400)
 my_button_35.draw()
-my_button_36 = Button("AXE", 400, 510, True, 55, 50)
+my_button_36 = Button("AXE", 370, 470, True, 95, 90)
 my_button_36.draw()  # --------------26 buttons so far
-my_button_37 = Button("ARROW", 840, 460, True, 80, 120)
+my_button_37 = Button("ARROW", 810, 420, True, 120, 160)
 my_button_37.draw()
 
 # for a4scene
@@ -954,7 +957,7 @@ my_button_40 = Button("APPLES", 570, 100, True, 180, 280)
 my_button_40.draw()
 my_button_41 = Button("ALLIGATOR", 40, 470, True, 100, 270)
 my_button_41.draw()
-my_button_42 = Button("ANT", 900, 390, True, 45, 90)
+my_button_42 = Button("ANT", 780, 270, True, 125, 170)
 my_button_42.draw()
 my_button_43 = Button("AMBULANCE", 500, 550, True, 120, 320)
 my_button_43.draw()
@@ -983,7 +986,7 @@ my_button_57 = Button("TIE", 530, 120, True, 90, 40)
 my_button_57.draw()
 my_button_58 = Button("TABLE", 390, 435, True, 80, 180)
 my_button_58.draw()
-my_button_59 = Button("TOAD", 910, 457, True, 65, 74)
+my_button_59 = Button("turtle", 825, 422, True, 82, 151)
 my_button_59.draw()
 
 # for screen marker
@@ -1113,12 +1116,13 @@ wrong_clicks=0
 correct_clicks=0
 while control:  # main running loop of the game screen
     global_click_check=0
-    pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
+    # pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
+    pygame.draw.rect(screen, (129, 33, 191), (1000, 0, 200, 700))
 
     if (coordinate_queue.empty()):
         queue_not_empty = 0
         finger = (0, 0)
-        print("queue_empty")
+        # print("queue_empty")
     else:
         queue_not_empty = 1
         correct_clicks+=1
@@ -1224,8 +1228,11 @@ while control:  # main running loop of the game screen
         # screen.blit(button_text_2, (555, 95))
         if (hint_s1 == 4):
             screen.blit(empty, (1015, 65))
+            print("empty_hint")
         if (hint_s1 == 3):
             screen.blit(point1, (1015, 65))
+            print("empty_hint1")
+
         if (hint_s1 == 2):
             screen.blit(point2, (1015, 65))
         if (hint_s1 == 1):
@@ -1487,6 +1494,7 @@ while control:  # main running loop of the game screen
             summary_status_s2 = 3
             night_delay_status = 3
             global_click_check = 1
+            night_scene_image_status=-1
 
     # ---------------------Night Scene ----->>>  Forest Scene------------------------------------
 
@@ -2369,7 +2377,7 @@ while control:  # main running loop of the game screen
 
         input_61 = my_button_59.check_click_manually(finger, queue_not_empty)
         if input_61:
-            t3_toad_image_status = 1
+            t3_turtle_image_status = 1
             t_t1_4=pygame.time.get_ticks()-time_3_3_1
             global_click_check = 1
 
@@ -2421,14 +2429,14 @@ while control:  # main running loop of the game screen
             table_sound.play()
             t3_table_sound_status = 0
 
-    if t3_toad_image_status == 1:
-        screen.blit(t3_toad, (897, 443))
-        screen.blit(toad_text, (780, 390))
-        if t3_toad_sound_status == 1:
-            toad_sound.play()
-            t3_toad_sound_status = 0
+    if t3_turtle_image_status == 1:
+        screen.blit(t3_turtle, (825, 422))
+        screen.blit(turtle_text, (780, 390))
+        if t3_turtle_sound_status == 1:
+            turtle_sound.play()
+            t3_turtle_sound_status = 0
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 1 and summary_status_t3 == 0:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 1 and summary_status_t3 == 0:
         screen.blit(t3_tap, (0, 395))
         pygame.display.update()  # Update the screen to show the fourth image
         if time_3_3_status == 1:
@@ -2438,7 +2446,7 @@ while control:  # main running loop of the game screen
         t3_delay_status = 2
         summary_status_t3 = 1
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3==1:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 2 and summary_status_t3==1:
         screen.fill((255,255,255))
         hint_t1=-1
         screen.blit(t3_tap,(20,370))
@@ -2453,9 +2461,9 @@ while control:  # main running loop of the game screen
         pygame.display.update()
         time.sleep(1)
 
-        screen.blit(t3_toad, (1050, 40))
-        screen.blit(toad_text, (800, 40))
-        toad_sound.play()
+        screen.blit(t3_turtle, (1050, 40))
+        screen.blit(turtle_text, (800, 40))
+        turtle_sound.play()
         pygame.display.update()
         time.sleep(1)
 
@@ -2467,7 +2475,7 @@ while control:  # main running loop of the game screen
 
         summary_status_t3 = 2
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3 == 2:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 2 and summary_status_t3 == 2:
         screen.fill((255, 255, 255))
         screen.blit(winner_image_new,(265,100))
         # show_score(420, 280, 9)
@@ -2798,13 +2806,14 @@ while control:  # main running loop of the game screen
     if last_scene_status == 1:
         control = False
 
-    pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
+    # pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
     my_button_61 = Button2("END GAME", 1007, 180, True, 47, 183, False)
     # my_button_61.check_hover()
     my_button_61.draw()
     input_break = my_button_61.check_click_manually(finger, queue_not_empty)
-    if (input_break):
-        print("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP$$$$")
+    input_break1 = my_button_61.check_click()
+    if (input_break or input_break1):
+        # print("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP$$$$")
         control = False
         break
 
@@ -2820,13 +2829,13 @@ while control:  # main running loop of the game screen
     my_button_64.check_hover()
     my_button_64.draw()
 
-    input_62 = my_button_62.check_click_manually(finger, queue_not_empty)
+    input_62 = my_button_62.check_click()
     if input_62:
         char_s_image_status = 1
         input_62 = 0
         global_click_check = 1
 
-    input_63 = my_button_63.check_click_manually(finger, queue_not_empty)
+    input_63 = my_button_63.check_click()
     if input_63:
         char_a_image_status = 1
         char_s_image_status = 0
@@ -2839,7 +2848,7 @@ while control:  # main running loop of the game screen
         forest_scene_status = 0
         global_click_check = 1
 
-    input_64 = my_button_64.check_click_manually(finger, queue_not_empty)
+    input_64 = my_button_64.check_click()
     if input_64:
         t_char_status = 1
         char_s_image_status = 0

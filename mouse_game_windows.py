@@ -86,11 +86,12 @@ t2_tent = pygame.image.load("t2_tent.png")
 t2_tree = pygame.image.load("t2_tree.png")
 
 
-t3_scene = pygame.image.load("t3_scene.png")
+t3_scene = pygame.image.load("t3_scene (1).jpg")
 t3_table = pygame.image.load("t3_table.png")
 t3_tap = pygame.image.load("t3_tap.png")
 t3_tie = pygame.image.load("t3_tie.png")
-t3_toad = pygame.image.load("t3_toad.png")
+t3_turtle = pygame.image.load("t3_turtle.png")
+
 
 #Setting the Title
 pygame.display.set_caption("Game")
@@ -199,7 +200,7 @@ tap_sound = mixer.Sound("tap_sound.mp3")
 tent_sound = mixer.Sound("tent_sound.mp3")
 tie_sound = mixer.Sound("tie_sound.mp3")
 tiger_sound = mixer.Sound("tiger_sound.mp3")
-toad_sound = mixer.Sound("toad_sound.mp3")
+turtle_sound = mixer.Sound("t3_turtle.mp3")
 tomatoes_sound = mixer.Sound("tomatoes_sound.mp3")
 tree_sound = mixer.Sound("tree_sound.mp3")
 table_text = font_new.render("table", True, (0,155,0))
@@ -207,7 +208,7 @@ tap_text = font_new.render("tap", True, (205,10,10))
 tent_text = font_new.render("tent", True, (70,70,70))
 tie_text = font_new.render("tie", True, (153,0,76))
 tiger_text = font_new.render("tiger", True, (153,0,76))
-toad_text = font_new.render("toad", True, (153,0,76))
+turtle_text = font_new.render("turtle", True, (153,0,76))
 tomatoes_text = font_new.render("tomatoes", True, (153,0,76))
 tree_text = font_new.render("tree", True, (153,0,76))
 
@@ -596,9 +597,9 @@ t3_scene_status = 0
 
 t3_tie_image_status = 0 #inactive
 t3_tap_image_status = 0 #inactive
-t3_toad_image_status = 0
+t3_turtle_image_status = 0
 t3_table_image_status = 0
-t3_toad_sound_status = 1
+t3_turtle_sound_status = 1
 t3_table_sound_status = 1
 t3_tap_sound_status = 1
 t3_tie_sound_status = 1
@@ -900,11 +901,11 @@ my_button_54.draw()
 
 my_button_56 = Button("TAP",25,430,True,200,150)
 my_button_56.draw()
-my_button_57 = Button("TIE",530,120,True,90,40)
+my_button_57 = Button("TIE",490,100,True,110,70)
 my_button_57.draw()
 my_button_58 = Button("TABLE",390,435,True,80,180)
 my_button_58.draw()
-my_button_59 = Button("TOAD",910,457,True,65,74)
+my_button_59 = Button("turtle",825,422,True,82,151)
 my_button_59.draw()
 
 global_click_check = 0
@@ -914,7 +915,9 @@ correct_clicks=0
 initial_button=1
 control = True #status of the main while loop
 while control: #main running loop of the game screen
-    pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
+    # pygame.draw.rect(screen, (224, 176, 255), (1000, 0, 200, 700))
+    pygame.draw.rect(screen, (129, 33, 191), (1000, 0, 200, 700))
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             control = False
@@ -1107,6 +1110,7 @@ while control: #main running loop of the game screen
             night_scene_image_status = 1
             summary_status_s1=3
             global_click_check = 1
+            char_s_scene_status=-1
 
 
     #-------------------------Day Scene ----->>>>  Night Scene----------------------------
@@ -1259,6 +1263,7 @@ while control: #main running loop of the game screen
             summary_status_s2 = 3
             night_delay_status = 3
             global_click_check = 1
+            night_scene_image_status=-1
 
     #---------------------Night Scene ----->>>  Forest Scene------------------------------------
 
@@ -2116,7 +2121,7 @@ while control: #main running loop of the game screen
 
         input_61 = my_button_59.check_click()
         if input_61:
-            t3_toad_image_status = 1
+            t3_turtle_image_status = 1
             t_t1_1=pygame.time.get_ticks()-time_3_3_1
             if active_t1_4 != 0:
                 hint_t1 -= 1
@@ -2153,7 +2158,7 @@ while control: #main running loop of the game screen
             t3_tap_sound_status = 0
 
     if t3_tie_image_status == 1:
-        screen.blit(t3_tie,(481,0))
+        screen.blit(t3_tie,(481,-12))
         screen.blit(tie_text,(350,130))
         if t3_tie_sound_status == 1:
             tie_sound.play()
@@ -2166,14 +2171,14 @@ while control: #main running loop of the game screen
             table_sound.play()
             t3_table_sound_status = 0
 
-    if t3_toad_image_status == 1:
-        screen.blit(t3_toad,(897,443))
-        screen.blit(toad_text,(780,390))
-        if t3_toad_sound_status == 1:
-            toad_sound.play()
-            t3_toad_sound_status = 0
+    if t3_turtle_image_status == 1:
+        screen.blit(t3_turtle,(825,422))
+        screen.blit(turtle_text,(780,390))
+        if t3_turtle_sound_status == 1:
+            turtle_sound.play()
+            t3_turtle_sound_status = 0
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 1 and summary_status_t3==0:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 1 and summary_status_t3==0:
         screen.blit(t3_tap,(0,395))
         pygame.display.update()  # Update the screen to show the fourth image
         if time_3_3_status == 1:
@@ -2183,7 +2188,7 @@ while control: #main running loop of the game screen
         t3_delay_status = 2
         summary_status_t3=1
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3==1:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 2 and summary_status_t3==1:
         screen.fill((255,255,255))
         hint_t1=-1
         screen.blit(t3_tap,(20,370))
@@ -2198,9 +2203,9 @@ while control: #main running loop of the game screen
         pygame.display.update()
         time.sleep(1)
 
-        screen.blit(t3_toad,(1050,40))
-        screen.blit(toad_text,(800,40))
-        toad_sound.play()
+        screen.blit(t3_turtle,(1050,40))
+        screen.blit(turtle_text,(800,40))
+        turtle_sound.play()
         pygame.display.update()
         time.sleep(1)
 
@@ -2212,7 +2217,7 @@ while control: #main running loop of the game screen
 
         summary_status_t3=2
 
-    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_toad_image_status == 1 and t3_delay_status == 2 and summary_status_t3==2:
+    if t3_tap_image_status == 1 and t3_tie_image_status == 1 and t3_table_image_status == 1 and t3_turtle_image_status == 1 and t3_delay_status == 2 and summary_status_t3==2:
         screen.fill((255,255,255))
         screen.blit(winner_image_new,(265,100))
         # show_score(420,280,9)

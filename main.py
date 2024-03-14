@@ -913,7 +913,7 @@ my_button_6.draw()
 my_button_7 = Button("SPIDER", 760, 230, True, 120, 110)
 my_button_7.draw()
 
-my_button_8 = Button("STARS", 40, 10, True, 120, 165)
+my_button_8 = Button("STARS", 30, 10, True, 120, 205)
 my_button_8.draw()
 
 my_button_11 = Button("SUN", 770, 10, True, 180, 180)
@@ -977,7 +977,7 @@ my_button_49.draw()
 
 my_button_51 = Button("TREE", 30, 250, True, 165, 290)
 my_button_51.draw()
-my_button_52 = Button("TABLE", 140, 600, True, 75, 80)
+my_button_52 = Button("TABLE", 120, 580, True, 95, 100)
 my_button_52.draw()
 my_button_53 = Button("TENT", 420, 500, True, 80, 180)
 my_button_53.draw()
@@ -986,9 +986,9 @@ my_button_54.draw()
 
 my_button_56 = Button("TAP", 25, 430, True, 200, 150)
 my_button_56.draw()
-my_button_57 = Button("TIE", 530, 120, True, 90, 40)
+my_button_57 = Button("TIE", 510, 90, True, 110, 60)
 my_button_57.draw()
-my_button_58 = Button("TABLE", 390, 435, True, 80, 180)
+my_button_58 = Button("TABLE", 370, 415, True, 100, 210)
 my_button_58.draw()
 my_button_59 = Button("turtle", 825, 422, True, 82, 151)
 my_button_59.draw()
@@ -2910,9 +2910,9 @@ while control:  # main running loop of the game screen
     my_button_61 = Button2("END GAME", 1007, 180, True, 47, 183, False)
     # my_button_61.check_hover()
     my_button_61.draw()
-    input_break = my_button_61.check_click_manually(finger, queue_not_empty)
+    # input_break = my_button_61.check_click_manually(finger, queue_not_empty)
     input_break1 = my_button_61.check_click()
-    if (input_break or input_break1):
+    if ( input_break1):
         # print("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP$$$$")
         control = False
         break

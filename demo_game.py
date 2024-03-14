@@ -1224,40 +1224,43 @@ while control: #main running loop of the game screen
 
     input_62 = my_button_62.check_click_manually(finger, queue_not_empty)
     if input_62:
-        char_s_image_status = 1
-        input_62 = 0
-        global_click_check = 1
+        pass
+        # char_s_image_status = 1
+        # input_62 = 0
+        # global_click_check = 1
 
     input_63 = my_button_63.check_click_manually(finger, queue_not_empty)
     if input_63:
-        char_a_image_status = 1
-        char_s_image_status = 0
-        char_s_scene_status = 0
-        initial_button = 0
-        input_63 = 0
-
-        night_scene_image_status = 0
-        branch_scene_status = 0
-        forest_scene_status = 0
-        global_click_check = 1
+        pass
+        # char_a_image_status = 1
+        # char_s_image_status = 0
+        # char_s_scene_status = 0
+        # initial_button = 0
+        # input_63 = 0
+        #
+        # night_scene_image_status = 0
+        # branch_scene_status = 0
+        # forest_scene_status = 0
+        # global_click_check = 1
 
     input_64 = my_button_64.check_click_manually(finger, queue_not_empty)
     if input_64:
-        t_char_status = 1
-        char_s_image_status = 0
-        char_s_scene_status = 0
-        initial_button = 0
-        input_64 = 0
-        char_a_image_status = 0
-        a3_scene_status = 0
-        a1scene_status = 0
-        a4_scene_status = 0
-        a2_scene_status = 0
-        global_click_check = 1
-
-        night_scene_image_status = 0
-        branch_scene_status = 0
-        forest_scene_status = 0
+        pass
+        # t_char_status = 1
+        # char_s_image_status = 0
+        # char_s_scene_status = 0
+        # initial_button = 0
+        # input_64 = 0
+        # char_a_image_status = 0
+        # a3_scene_status = 0
+        # a1scene_status = 0
+        # a4_scene_status = 0
+        # a2_scene_status = 0
+        # global_click_check = 1
+        #
+        # night_scene_image_status = 0
+        # branch_scene_status = 0
+        # forest_scene_status = 0
 
 
     if (queue_not_empty and (not (global_click_check))):

@@ -951,7 +951,7 @@ while control: #main running loop of the game screen
             time_0_0 = pygame.time.get_ticks()
             time_0_0_status = 0
         char_s_image_status = 0
-        screen.blit(char_s_scene,(0,0))
+        screen.blit(char_s_scene, (0, 0))
 
         input_3 = my_button_3.check_click()
         if input_3:
@@ -989,20 +989,20 @@ while control: #main running loop of the game screen
                 active_s1_4 = 0
                 global_click_check = 1
 
-    #blitting the images of elements on the screen after their positions are clicked
+        # blitting the images of elements on the screen after their positions are clicked
 
-        button_rect = pygame.rect.Rect((550,50 ),(230,40))
-        button_rect_2 = pygame.rect.Rect((550,85 ),(230,40))
+        button_rect = pygame.rect.Rect((550, 50), (230, 40))
+        button_rect_2 = pygame.rect.Rect((550, 85), (230, 40))
 
-        # pygame.draw.rect(screen,"#f07e0c",button_rect,0,5)
-        # pygame.draw.rect(screen,"#f07e0c",button_rect_2,0,5)
+        # pygame.draw.rect(screen, "#f07e0c", button_rect, 0, 5)
+        # pygame.draw.rect(screen, "#f07e0c", button_rect_2, 0, 5)
         #
-        # hint_text="S remaining : " +str(hint_s1)
-        # hint_text_2="S marked    : " + str(4-hint_s1)
+        # hint_text = "S remaining : " + str(hint_s1)
+        # hint_text_2 = "S marked    : " + str(4 - hint_s1)
         # button_text = font.render(hint_text, True, "white")
         # button_text_2 = font.render(hint_text_2, True, "white")
-        # screen.blit(button_text,(555 ,55))
-        # screen.blit(button_text_2,(555 ,95))
+        # screen.blit(button_text, (555, 55))
+        # screen.blit(button_text_2, (555, 95))
         if (hint_s1 == 4):
             screen.blit(empty, (1015, 65))
         if (hint_s1 == 3):
@@ -1043,8 +1043,8 @@ while control: #main running loop of the game screen
             swing_sound_status = 0
 
     if stone_image_status == 1:
-        screen.blit(stone_image,(28,517))
-        screen.blit(stone_text,(280,600))
+        screen.blit(stone_image, (28, 517))
+        screen.blit(stone_text, (280, 600))
         # .display.flip()
 
         if stones_sound_status == 1:

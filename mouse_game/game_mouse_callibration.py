@@ -1,52 +1,3 @@
-# import pygame
-#
-# # Initialize Pygame
-# pygame.init()
-#
-# # Set screen size
-# screen_width = 800
-# screen_height = 600
-# screen = pygame.display.set_mode((screen_width, screen_height))
-#
-# # Set circle color
-# circle_color = (255, 0, 0)  # Red
-#
-# # Set circle radius (adjust as needed)
-# circle_radius = 10
-#
-# # Set drawing flag
-# drawing = False
-#
-# # Game loop
-# running = True
-# while running:
-#     for event in pygame.event.get():
-#         # Quit event
-#         if event.type == pygame.QUIT:
-#             running = False
-#
-#         # Left mouse click event
-#         elif event.type == pygame.MOUSEBUTTONDOWN:
-#             if event.button == 1:
-#                 # Get mouse position
-#                 mouse_pos = pygame.mouse.get_pos()
-#                 # Set drawing flag to True
-#                 drawing = True
-#
-#     # Fill screen with white
-#     screen.fill((255, 255, 255))
-#
-#     # Draw circle if drawing flag is True
-#     if drawing:
-#         pygame.draw.circle(screen, circle_color, mouse_pos, circle_radius)
-#
-#     # Update display
-#     pygame.display.flip()
-#
-# # Quit Pygame
-# pygame.quit()
-
-
 import pygame
 import time
 import math
@@ -59,6 +10,11 @@ import threading
 from pygame import mixer
 import time
 import pygame.font
+
+
+#this is a game to check the integration of the sensor and the projected screen
+#it marks the point of detected touch with a red circle
+
 
 # Initialize Pygame
 pygame.init()

@@ -24,117 +24,117 @@ pygame.init()
 screen = pygame.display.set_mode((1200, 700))
 
 # landing page image
-land_image = pygame.image.load("land_image.jpg")
+land_image = pygame.image.load("img/land_image.jpg")
 
 '''Background sound'''
-mixer.music.load("smilee.mp3")
+mixer.music.load("img/smilee.mp3")
 mixer.music.play(-1)
 
 # page_2
-char_s_image = pygame.image.load("Premium-Vector-Happy-cute-little-kid-study-alphabet-character.png")
+char_s_image = pygame.image.load("img/Premium-Vector-Happy-cute-little-kid-study-alphabet-character.png")
 char_s_image_status = 0
 
 # page_3
-char_s_scene = pygame.image.load("first_image.jpg")
+char_s_scene = pygame.image.load("img/first_image.jpg")
 char_s_scene_status = 0
-s_command = mixer.Sound("s_command.mp3")
-a_command = mixer.Sound("a_command.mp3")
-t_command = mixer.Sound("t_command.mp3")
-please_continue_audio=mixer.Sound("hindi_age+badhiye.mp3")
+s_command = mixer.Sound("sound/s_command.mp3")
+a_command = mixer.Sound("sound/a_command.mp3")
+t_command = mixer.Sound("sound/t_command.mp3")
+please_continue_audio=mixer.Sound("sound/hindi_age+badhiye.mp3")
 
 # page5
-night_scene_image = pygame.image.load("night_scene.jpg")
+night_scene_image = pygame.image.load("img/night_scene.jpg")
 night_scene_image_status = 0  # currently inactive
 
 # page_7
-forest_scene_image = pygame.image.load("forest_scene_image.jpg")
+forest_scene_image = pygame.image.load("img/forest_scene_image.jpg")
 forest_scene_status = 0  # currently inactive
 
 # page 9
-branch_scene_image = pygame.image.load("branch_scene.jpg")
+branch_scene_image = pygame.image.load("img/branch_scene.jpg")
 
 # page 11
-stars_scene = pygame.image.load("stars_scene.jpg")
+stars_scene = pygame.image.load("img/stars_scene.jpg")
 
 # -----------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------
 # char a image
-char_a_image = pygame.image.load("char_a_image.png")
-a1_scene = pygame.image.load("a1_scene.png")
-a1_apples = pygame.image.load("a1_apples.png")
-a1_axe = pygame.image.load("a1_axe.png")
-a1_ant = pygame.image.load("a1_ant.png")
+char_a_image = pygame.image.load("img/char_a_image.png")
+a1_scene = pygame.image.load("img/a1_scene.png")
+a1_apples = pygame.image.load("img/a1_apples.png")
+a1_axe = pygame.image.load("img/a1_axe.png")
+a1_ant = pygame.image.load("img/a1_ant.png")
 
-a2_scene = pygame.image.load("a2_scene.png")
-a2_apples = pygame.image.load("a2_apples.png")
-a2_axe = pygame.image.load("a2_axe.png")
-a2_alligator = pygame.image.load("a2_alligator.png")
-a2_ant = pygame.image.load("a2_ant.png")
+a2_scene = pygame.image.load("img/a2_scene.png")
+a2_apples = pygame.image.load("img/a2_apples.png")
+a2_axe = pygame.image.load("img/a2_axe.png")
+a2_alligator = pygame.image.load("img/a2_alligator.png")
+a2_ant = pygame.image.load("img/a2_ant.png")
 
-a3_scene = pygame.image.load("a3_scene.png")
-a3_arrow = pygame.image.load("a3_arrow.png")
+a3_scene = pygame.image.load("img/a3_scene.png")
+a3_arrow = pygame.image.load("img/a3_arrow.png")
 
-a4_scene = pygame.image.load("a4_scene.png")
-a4_ambulance = pygame.image.load("a4_ambulance.png")
+a4_scene = pygame.image.load("img/a4_scene.png")
+a4_ambulance = pygame.image.load("img/a4_ambulance.png")
 
-summary_apples = pygame.image.load("apple_summary.png")
+summary_apples = pygame.image.load("img/apple_summary.png")
 
-t1_scene = pygame.image.load("t1_scene.jpg")
-t1_table = pygame.image.load("t1_table.png")
-t1_tent = pygame.image.load("t1_tent.png")
-t1_tiger = pygame.image.load("t1_tiger.png")
+t1_scene = pygame.image.load("img/t1_scene.jpg")
+t1_table = pygame.image.load("img/t1_table.png")
+t1_tent = pygame.image.load("img/t1_tent.png")
+t1_tiger = pygame.image.load("img/t1_tiger.png")
 scaling_factor = 0.85
 original_size = t1_tiger.get_size()
 new_size = (int(original_size[0] * scaling_factor), int(original_size[1] * scaling_factor))
 
 t1_tiger = pygame.transform.scale(t1_tiger, new_size)
-t1_tomato = pygame.image.load("t1_tomato.png")
+t1_tomato = pygame.image.load("img/t1_tomato.png")
 
-t2_scene = pygame.image.load("t2_scene.png")
-t2_table = pygame.image.load("t2_table.png")
-t2_tent = pygame.image.load("t2_tent.png")
-t2_tree = pygame.image.load("t2_tree.png")
+t2_scene = pygame.image.load("img/t2_scene.png")
+t2_table = pygame.image.load("img/t2_table.png")
+t2_tent = pygame.image.load("img/t2_tent.png")
+t2_tree = pygame.image.load("img/t2_tree.png")
 
-t3_scene = pygame.image.load("t3_scene (1).jpg")
-t3_table = pygame.image.load("t3_table.png")
-t3_tap = pygame.image.load("t3_tap.png")
-t3_tie = pygame.image.load("t3_tie.png")
-t3_toad = pygame.image.load("t3_toad.png")
-t3_turtle= pygame.image.load("t3_turtle.png")
+t3_scene = pygame.image.load("img/t3_scene (1).jpg")
+t3_table = pygame.image.load("img/t3_table.png")
+t3_tap = pygame.image.load("img/t3_tap.png")
+t3_tie = pygame.image.load("img/t3_tie.png")
+t3_toad = pygame.image.load("img/t3_toad.png")
+t3_turtle= pygame.image.load("img/t3_turtle.png")
 
 # Setting the Title
 pygame.display.set_caption("Game")
 
 # Setting the icon
-icon_image = pygame.image.load("languages.png")
+icon_image = pygame.image.load("img/languages.png")
 pygame.display.set_icon(icon_image)
 
 # Sun Image Load
-sun_image = pygame.image.load("final_sun_image.jpg")
+sun_image = pygame.image.load("img/final_sun_image.jpg")
 
 # Snake Image Load
-snake_image = pygame.image.load("snake.jpg")
-forest_snake_image = pygame.image.load("forest_snake.jpg")
+snake_image = pygame.image.load("img/snake.jpg")
+forest_snake_image = pygame.image.load("img/forest_snake.jpg")
 
 # Swing Image Load
-swing_image = pygame.image.load("swing.jpg")
+swing_image = pygame.image.load("img/swing.jpg")
 
 # Stone Image Load
-stone_image = pygame.image.load("stone_image.jpg")
-forest_stone_image = pygame.image.load("forest_stone.jpg")
+stone_image = pygame.image.load("img/stone_image.jpg")
+forest_stone_image = pygame.image.load("img/forest_stone.jpg")
 
 # spider image load
-spider_image = pygame.image.load("spider.jpg")
-forest_spider_image = pygame.image.load("forest_spider.jpg")
+spider_image = pygame.image.load("img/spider.jpg")
+forest_spider_image = pygame.image.load("img/forest_spider.jpg")
 
 # stars image load
-stars_image = pygame.image.load("stars.jpg")
-six_image = pygame.image.load("six.png")
-superstar_sound = mixer.Sound("superstar.mp3")
-try_sound = mixer.Sound("try.mp3")
+stars_image = pygame.image.load("img/stars.jpg")
+six_image = pygame.image.load("img/six.png")
+superstar_sound = mixer.Sound("sound/superstar.mp3")
+try_sound = mixer.Sound("sound/try.mp3")
 
 # empty screen image for branches number
-white_band = pygame.image.load("empty_screen.png")
+white_band = pygame.image.load("img/empty_screen.png")
 
 # font for the text of the buttons
 font = pygame.font.Font("freesansbold.ttf", 28)
@@ -146,22 +146,22 @@ font3 = pygame.font.Font("freesansbold.ttf", 48)
 font4 = pygame.font.Font("freesansbold.ttf", 84)
 
 # winner image load
-winner_image_new=pygame.image.load("animal_img.jpg")
-winner_image = pygame.image.load("46141 (1).jpg")
-# winner_image_new = pygame.image.load("win2.png")
-# winner_image_new = pygame.image.load("win3.png")
-# winner_image_new = pygame.image.load("win4.png")
-# winner_image_new = pygame.image.load("win5.png")
-# winner_image_new = pygame.image.load("win6.png")
-# winner_image_new = pygame.image.load("win7.png")
-# winner_image_new = pygame.image.load("win8.png")
-# winner_image_new = pygame.image.load("win9.png")
-# winner_image_new = pygame.image.load("win10.png")
-# winner_image_new = pygame.image.load("win11.png")
-# winner_image_new = pygame.image.load("win9.png")
+winner_image_new=pygame.image.load("img/animal_img.jpg")
+winner_image = pygame.image.load("img/46141 (1).jpg")
+# winner_image_new = pygame.image.load("img/win2.png")
+# winner_image_new = pygame.image.load("img/win3.png")
+# winner_image_new = pygame.image.load("img/win4.png")
+# winner_image_new = pygame.image.load("img/win5.png")
+# winner_image_new = pygame.image.load("img/win6.png")
+# winner_image_new = pygame.image.load("img/win7.png")
+# winner_image_new = pygame.image.load("img/win8.png")
+# winner_image_new = pygame.image.load("img/win9.png")
+# winner_image_new = pygame.image.load("img/win10.png")
+# winner_image_new = pygame.image.load("img/win11.png")
+# winner_image_new = pygame.image.load("img/win9.png")
 
 # sakshar image
-sakshar_image = pygame.image.load("SAKSHAR.jpg")
+sakshar_image = pygame.image.load("img/SAKSHAR.jpg")
 
 # text names of the images
 font_new = pygame.font.Font("freesansbold.ttf", 42)
@@ -175,42 +175,42 @@ stars_text = font_new.render("stars", True, (240, 230, 30))
 six_text = font_new.render("six", True, (0, 0, 200))
 
 # a1_scene
-ant_sound = mixer.Sound("ant_sound.mp3")
-apples_sound = mixer.Sound("apples_sound.mp3")
-axe_sound = mixer.Sound("axe_sound.mp3")
+ant_sound = mixer.Sound("sound/ant_sound.mp3")
+apples_sound = mixer.Sound("sound/apples_sound.mp3")
+axe_sound = mixer.Sound("sound/axe_sound.mp3")
 apples_text = font_new.render("apples", True, (205, 10, 10))
 axe_text = font_new.render("axe", True, (70, 70, 70))
 ant_text = font_new.render("ant", True, (153, 0, 76))
 
 # a2_scene
-ant_sound = mixer.Sound("ant_sound.mp3")
-apples_sound = mixer.Sound("apples_sound.mp3")
-axe_sound = mixer.Sound("axe_sound.mp3")
-alligator_sound = mixer.Sound("alligator_sound.mp3")
+ant_sound = mixer.Sound("sound/ant_sound.mp3")
+apples_sound = mixer.Sound("sound/apples_sound.mp3")
+axe_sound = mixer.Sound("sound/axe_sound.mp3")
+alligator_sound = mixer.Sound("sound/alligator_sound.mp3")
 alligator_text = font_new.render("alligator", True, (0, 155, 0))
 apples_text = font_new.render("apples", True, (205, 10, 10))
 axe_text = font_new.render("axe", True, (70, 70, 70))
 ant_text = font_new.render("ant", True, (153, 0, 76))
 
 # a3scene
-arrow_sound = mixer.Sound("arrow_sound.mp3")
+arrow_sound = mixer.Sound("sound/arrow_sound.mp3")
 arrow_text = font_new.render("arrow", True, (255, 128, 0))
 
 # a4scene
-ambulance_sound = mixer.Sound("ambulance_sound.mp3")
+ambulance_sound = mixer.Sound("sound/ambulance_sound.mp3")
 ambulance_text = font_new.render("ambulance", True, (0, 100, 210))
 
 # tmodule
-t_char_image = pygame.image.load("t_char.png")
-table_sound = mixer.Sound("table_sound.mp3")
-tap_sound = mixer.Sound("tap_sound.mp3")
-tent_sound = mixer.Sound("tent_sound.mp3")
-tie_sound = mixer.Sound("tie_sound.mp3")
-tiger_sound = mixer.Sound("tiger_sound.mp3")
-toad_sound = mixer.Sound("toad_sound.mp3")
-turtle_sound = mixer.Sound("t3_turtle.mp3")
-tomatoes_sound = mixer.Sound("tomatoes_sound.mp3")
-tree_sound = mixer.Sound("tree_sound.mp3")
+t_char_image = pygame.image.load("img/t_char.png")
+table_sound = mixer.Sound("sound/table_sound.mp3")
+tap_sound = mixer.Sound("sound/tap_sound.mp3")
+tent_sound = mixer.Sound("sound/tent_sound.mp3")
+tie_sound = mixer.Sound("sound/tie_sound.mp3")
+tiger_sound = mixer.Sound("sound/tiger_sound.mp3")
+toad_sound = mixer.Sound("sound/toad_sound.mp3")
+turtle_sound = mixer.Sound("sound/t3_turtle.mp3")
+tomatoes_sound = mixer.Sound("sound/tomatoes_sound.mp3")
+tree_sound = mixer.Sound("sound/tree_sound.mp3")
 table_text = font_new.render("table", True, (0, 155, 0))
 tap_text = font_new.render("tap", True, (205, 10, 10))
 tent_text = font_new.render("tent", True, (70, 70, 70))
@@ -222,96 +222,96 @@ tomatoes_text = font_new.render("tomatoes", True, (153, 0, 76))
 tree_text = font_new.render("tree", True, (153, 0, 76))
 
 # sun,stones,snake and swing sound
-sun_sound = mixer.Sound("Sun.mp3")
-stones_sound = mixer.Sound("Stones.mp3")
-snake_sound = mixer.Sound("Snake.mp3")
-swing_sound = mixer.Sound("Swing.mp3")
+sun_sound = mixer.Sound("sound/Sun.mp3")
+stones_sound = mixer.Sound("sound/Stones.mp3")
+snake_sound = mixer.Sound("sound/Snake.mp3")
+swing_sound = mixer.Sound("sound/Swing.mp3")
 
 # for the night scene
-night_stones_sound = mixer.Sound("Stones.mp3")
-night_swing_sound = mixer.Sound("Swing.mp3")
-spider_sound = mixer.Sound("spider.mp3")
-stars_sound = mixer.Sound("stars.mp3")
+night_stones_sound = mixer.Sound("sound/Stones.mp3")
+night_swing_sound = mixer.Sound("sound/Swing.mp3")
+spider_sound = mixer.Sound("sound/spider.mp3")
+stars_sound = mixer.Sound("sound/stars.mp3")
 
 # for the branches scene and stars scene
-branches_sound = mixer.Sound("branches_sound.mp3")
-stars_scene_sound = mixer.Sound("stars_sound_1.mp3")
-empty = pygame.image.load("empty.png")
-point1 = pygame.image.load("1 point.png")
-point2 = pygame.image.load("2 points.png")
-point3 = pygame.image.load("3points.png")
-point4 = pygame.image.load("4points.png")
+branches_sound = mixer.Sound("sound/branches_sound.mp3")
+stars_scene_sound = mixer.Sound("sound/stars_sound_1.mp3")
+empty = pygame.image.load("img/empty.png")
+point1 = pygame.image.load("img/1 point.png")
+point2 = pygame.image.load("img/2 points.png")
+point3 = pygame.image.load("img/3points.png")
+point4 = pygame.image.load("img/4points.png")
 
-empty_3 = pygame.image.load("empty_3.png")
-point1_3 = pygame.image.load("1 points_3.png")
-point2_3 = pygame.image.load("2points_3.png")
-point3_3 = pygame.image.load("3points_3.png")
+empty_3 = pygame.image.load("img/empty_3.png")
+point1_3 = pygame.image.load("img/1 points_3.png")
+point2_3 = pygame.image.load("img/2points_3.png")
+point3_3 = pygame.image.load("img/3points_3.png")
 
 continue_text = font4.render("Please Continue", True, (102, 0, 204))
 
 
 def sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def night_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def a1_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def a2_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def a3_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def a4_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def t1_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def t2_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def t3_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def forest_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def wrong_answer_sound_play():
-    wrong_answer_sound = mixer.Sound("wrong_ans.wav")
+    wrong_answer_sound = mixer.Sound("sound/wrong_ans.wav")
     wrong_answer_sound.play()
 
 
 def branch_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
 def post_audio_scene_sound_play():
-    level_complete_sound = mixer.Sound("success-1-6297.mp3")
+    level_complete_sound = mixer.Sound("sound/success-1-6297.mp3")
     level_complete_sound.play()
 
 
@@ -1107,9 +1107,9 @@ global_click_check = 0
 
 
 # def error_sound_new():
-#     error_sound_ = mixer.Sound("new_error1.mp3")
+#     error_sound_ = mixer.Sound("sound/new_error1.mp3")
 #
-#     mixer.music.load("smilee.mp3")
+#     mixer.music.load("img/smilee.mp3")
 #
 #     error_sound_.play()
 error_sound=pygame.mixer.Sound('new_error1.mp3')
@@ -2984,10 +2984,16 @@ while control:  # main running loop of the game screen
 end_time = pygame.time.get_ticks()
 total_game_time = end_time - start_time
 
-with open('analytics.txt', 'a') as file:
+with open('txt/analytics.txt', 'a') as file:
     file.write(str(time_1_1) + " " + str(time_1_2) + " " + str(time_1_3) + " " + str(time_1_4) +
                " " + str(time_1_5) + " " + str(time_2_1) + " " + str(time_2_2) + " " + str(time_2_3)
                + " " + str(time_2_4) + " " + str(time_3_1) + " " + str(time_3_2) + " " +
-               str(time_3_3) + " " + str(total_game_time) + " "+ str(t_a1_1) + " "+ str(t_a1_2) + " "+str(t_a1_3)  + " "+str(t_a2_1) + " "+str(t_a2_2) + " "+str(t_a2_3) + " "+str(t_a3_1) + " "+str(t_a3_2) + " "+str(t_a3_3) + " "+str(t_a4_1) + " "+str(t_a4_2) + " "+str(t_a4_3) + " "+ str(t_a4_4) + " "+str(t_s1_1) + " "+ str(t_s1_2) + " "+ str(t_s1_3) + " " + str(t_s1_4) + " " +str(t_s2_1) + " " + str(t_s2_2) + " " +str(t_s2_3) + " " +str(t_s2_4) + " " +str(t_s3_1) + " " +str(t_s3_2) + " " +str(t_s3_3) + " " +str(t_s3_4) + " " + str(t_t1_1) + " "+ str(t_t1_2) + " "+ str(t_t1_3) + " " + str(t_t1_4) + " " +str(t_t2_1) + " " + str(t_t2_2) + " " +str(t_t2_3) + " " +str(t_t2_4) + " " +str(t_t3_1) + " " +str(t_t3_2) + " " +str(t_t3_3) + " " +str(t_t3_4) + " " +str(wrong_clicks)+ " "+ str(correct_clicks)+"\n")
+               str(time_3_3) + " " + str(total_game_time) + " "+ str(t_a1_1) + " "+ str(t_a1_2) + " "+str(t_a1_3)  +
+               " "+str(t_a2_1) + " "+str(t_a2_2) + " "+str(t_a2_3) + " "+str(t_a3_1) + " "+str(t_a3_2) + " "+str(t_a3_3) +
+               " "+str(t_a4_1) + " "+str(t_a4_2) + " "+str(t_a4_3) + " "+ str(t_a4_4) + " "+str(t_s1_1) + " "+ str(t_s1_2) +
+               " "+ str(t_s1_3) + " " + str(t_s1_4) + " " +str(t_s2_1) + " " + str(t_s2_2) + " " +str(t_s2_3) + " " +str(t_s2_4) +
+               " " +str(t_s3_1) + " " +str(t_s3_2) + " " +str(t_s3_3) + " " +str(t_s3_4) + " " + str(t_t1_1) + " "+ str(t_t1_2) + " "+
+               str(t_t1_3) + " " + str(t_t1_4) + " " +str(t_t2_1) + " " + str(t_t2_2) + " " +str(t_t2_3) + " " +str(t_t2_4) +
+               " " +str(t_t3_1) +" " +str(t_t3_2) + " " +str(t_t3_3) + " " +str(t_t3_4) + " " +str(wrong_clicks)+ " "+ str(correct_clicks)+"\n")
 pygame.quit()
 

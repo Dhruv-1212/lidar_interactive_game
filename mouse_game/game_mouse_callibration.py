@@ -1,52 +1,3 @@
-# import pygame
-#
-# # Initialize Pygame
-# pygame.init()
-#
-# # Set screen size
-# screen_width = 800
-# screen_height = 600
-# screen = pygame.display.set_mode((screen_width, screen_height))
-#
-# # Set circle color
-# circle_color = (255, 0, 0)  # Red
-#
-# # Set circle radius (adjust as needed)
-# circle_radius = 10
-#
-# # Set drawing flag
-# drawing = False
-#
-# # Game loop
-# running = True
-# while running:
-#     for event in pygame.event.get():
-#         # Quit event
-#         if event.type == pygame.QUIT:
-#             running = False
-#
-#         # Left mouse click event
-#         elif event.type == pygame.MOUSEBUTTONDOWN:
-#             if event.button == 1:
-#                 # Get mouse position
-#                 mouse_pos = pygame.mouse.get_pos()
-#                 # Set drawing flag to True
-#                 drawing = True
-#
-#     # Fill screen with white
-#     screen.fill((255, 255, 255))
-#
-#     # Draw circle if drawing flag is True
-#     if drawing:
-#         pygame.draw.circle(screen, circle_color, mouse_pos, circle_radius)
-#
-#     # Update display
-#     pygame.display.flip()
-#
-# # Quit Pygame
-# pygame.quit()
-
-
 import pygame
 import time
 import math
@@ -59,6 +10,11 @@ import threading
 from pygame import mixer
 import time
 import pygame.font
+
+
+#this is a game to check the integration of the sensor and the projected screen
+#it marks the point of detected touch with a red circle
+
 
 # Initialize Pygame
 pygame.init()
@@ -127,6 +83,7 @@ class DataPublisher(threading.Thread):
                         ans=self.transform_coordinates([key,value])
                         if(ans[0]>0 and ans[0]<540) and (ans[1]>0 and ans[1]< 360):
                             self.list_all_coordinates_transformed.append(ans)
+                            # print("getting data")
                         # key_avg += key
                         # value_avg += value
 
@@ -139,13 +96,15 @@ class DataPublisher(threading.Thread):
             #     value_avg = value_avg / l
             # final_data = self.transform_coordinates([key_avg, value_avg])
 
-
-            sorted_data = sorted(list_all_coordinates_transformed, key=lambda x: x[1])
+            sorted_data = sorted(self.list_all_coordinates_transformed, key=lambda x: x[1])
             final_coord=[]
-            final_coord.apped(sorted_data[0])
-            for i in range(len(sorted_data)):
-                if(final_coord[0][0]-10<sorted_data[i][0] and final_coord[0][0]+10>sorted_data[i][0] and final_coord[0][1]+10<sorted_data[i][1]):
-                    final_coord.append(sorted_data[i])
+            if(len(sorted_data)!=0):
+                # print("data_recieved")
+                final_coord.append(sorted_data[0])
+                for i in range(len(sorted_data)):
+                    # print("sorted")
+                    if(final_coord[0][0]-5<sorted_data[i][0] and final_coord[0][0]+5>sorted_data[i][0] and final_coord[0][1]+5<sorted_data[i][1]):
+                        final_coord.append(sorted_data[i])
 
             # if final_data is not None and l != 0:
             #     self.coordinate_queue.put(final_data[0])
